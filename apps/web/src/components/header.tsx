@@ -17,6 +17,8 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
     { href: "news", label: dict.nav.news },
     { href: "contacts", label: dict.nav.contacts },
   ];
+  const navClass = "order-last flex w-full gap-1 overflow-x-auto text-sm [scrollbar-width:none] sm:order-none sm:w-auto";
+  const linkClass = "whitespace-nowrap rounded-full px-3.5 py-1.5 font-medium text-muted transition-colors hover:bg-surface-2 hover:text-fg";
   return (
     <header className="sticky top-0 z-30 border-b border-border/70 bg-surface/85 backdrop-blur-md supports-[backdrop-filter]:bg-surface/75">
       <div className="mx-auto flex max-w-[90rem] flex-wrap items-center gap-x-8 gap-y-2 px-4 py-3 sm:px-6 lg:px-10">
@@ -32,21 +34,18 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           </span>
           <span className="font-serif text-xl font-bold tracking-tight text-fg">{dict.site.name}</span>
         </Link>
-        <nav
-          aria-label={dict.nav.mainLabel}
-          className="order-last flex w-full gap-1 overflow-x-auto text-sm [scrollbar-width:none] sm:order-none sm:w-auto"
-        >
-          {links.map((l) => (
-            <NavLink
-              key={l.href}
-              href={`/${locale}/${l.href}`}
-              className="whitespace-nowrap rounded-full px-3.5 py-1.5 font-medium text-muted transition-colors hover:bg-surface-2 hover:text-fg"
-              activeClassName="!bg-brand-soft !text-brand"
-            >
-              {l.label}
-            </NavLink>
-          ))}
-        </nav>
+        {/* The current-page highlight reads the path on the client, so it renders behind Suspense; plain links hold its place. */}
+        <Suspense fallback={<nav aria-label={dict.nav.mainLabel} className={navClass}>{links.map((l) => (
+          <Link key={l.href} href={`/${locale}/${l.href}`} className={linkClass}>{l.label}</Link>
+        ))}</nav>}>
+          <nav aria-label={dict.nav.mainLabel} className={navClass}>
+            {links.map((l) => (
+              <NavLink key={l.href} href={`/${locale}/${l.href}`} className={linkClass} activeClassName="!bg-brand-soft !text-brand">
+                {l.label}
+              </NavLink>
+            ))}
+          </nav>
+        </Suspense>
         <div className="ml-auto flex flex-wrap items-center gap-2">
           <AccessibilityPanel labels={dict.a11y} />
           <Suspense
