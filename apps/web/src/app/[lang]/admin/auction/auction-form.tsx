@@ -85,7 +85,7 @@ export function AuctionForm({
   }
 
   return (
-    <form onSubmit={submit} className="max-w-3xl space-y-6">
+    <form onSubmit={submit} className="max-w-4xl space-y-6">
       {error && <ErrorNote>{error}</ErrorNote>}
 
       <Field id="a-object" label={labels.object}>

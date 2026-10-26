@@ -97,7 +97,7 @@ export function ObjectForm({
   }
 
   return (
-    <form onSubmit={submit} className="max-w-3xl space-y-6">
+    <form onSubmit={submit} className="max-w-4xl space-y-6">
       {error && <ErrorNote>{error}</ErrorNote>}
 
       <div className="grid gap-4 sm:grid-cols-3">

@@ -29,7 +29,7 @@ export function ReplyForm({
   }, [state, router]);
 
   return (
-    <form ref={formRef} action={action} className="max-w-2xl space-y-4">
+    <form ref={formRef} action={action} className="max-w-3xl space-y-4">
       {state?.error && <ErrorNote>{errors[state.error] ?? errors.invalid}</ErrorNote>}
       {state?.saved && <SavedNote>{labels.sent}</SavedNote>}
       <div aria-hidden="true" className="absolute -left-[9999px] top-0 h-0 w-0 overflow-hidden">

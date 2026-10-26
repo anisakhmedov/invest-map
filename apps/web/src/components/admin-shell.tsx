@@ -43,7 +43,7 @@ export function AdminShell({
   ];
 
   return (
-    <div className={`mx-auto grid grid-cols-[minmax(0,1fr)] gap-8 px-4 py-8 sm:px-6 ${wide ? "max-w-[1700px]" : "max-w-6xl md:grid-cols-[220px_minmax(0,1fr)]"}`}>
+    <div className={`mx-auto grid grid-cols-[minmax(0,1fr)] gap-8 px-4 py-8 sm:px-6 lg:px-10 ${wide ? "max-w-[1700px]" : "max-w-[90rem] md:grid-cols-[220px_minmax(0,1fr)]"}`}>
       <aside className={wide ? "flex flex-wrap items-center justify-between gap-3 border-b border-border pb-3" : undefined}>
         <nav aria-label={dict.admin.nav.label} className={`flex flex-wrap gap-2 ${wide ? "" : "md:flex-col md:gap-1"}`}>
           {items

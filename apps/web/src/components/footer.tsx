@@ -13,7 +13,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   ];
   return (
     <footer className="mt-16 border-t border-border bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-[1.2fr_1fr]">
+      <div className="mx-auto grid max-w-[90rem] gap-8 px-4 py-10 sm:px-6 lg:px-10 md:grid-cols-[1.2fr_1fr]">
         <div>
           <p className="font-serif text-xl font-semibold text-brand">{dict.site.name}</p>
           <p className="mt-2 max-w-sm text-sm text-muted">{dict.site.tagline}</p>

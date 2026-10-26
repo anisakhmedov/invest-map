@@ -18,12 +18,12 @@ export default function OpenGraphImage() {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "0 90px",
-          background: "#0d1512",
+          background: "#0b0f17",
           color: "#e8efeb",
         }}
       >
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 110, fontWeight: 700, color: "#3fc3a2", letterSpacing: -2 }}>InvestMap</div>
+          <div style={{ fontSize: 110, fontWeight: 700, color: "#45cfae", letterSpacing: -2 }}>InvestMap</div>
           <div style={{ marginTop: 18, width: 160, height: 8, background: "#e8a540", borderRadius: 4 }} />
         </div>
         <div style={{ display: "flex", position: "relative", width: 700, height: 630, alignItems: "center", justifyContent: "center" }}>
@@ -39,7 +39,7 @@ export default function OpenGraphImage() {
               }}
             />
           ))}
-          <div style={{ width: 26, height: 26, borderRadius: 13, background: "#3fc3a2", border: "5px solid #0d1512" }} />
+          <div style={{ width: 26, height: 26, borderRadius: 13, background: "#45cfae", border: "5px solid #0b0f17" }} />
         </div>
       </div>
     ),

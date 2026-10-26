@@ -25,7 +25,7 @@ export default async function HomePage() {
         }}
       />
       <section className="relative overflow-hidden border-b border-border">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="mx-auto grid max-w-[90rem] items-center gap-10 px-4 py-14 sm:px-6 lg:px-10 sm:py-20 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <h1 className="font-serif text-4xl font-semibold leading-[1.1] tracking-tight text-balance sm:text-6xl">
               {dict.home.title}
@@ -50,7 +50,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <section className="mx-auto max-w-[90rem] px-4 py-16 sm:px-6 lg:px-10">
         <h2 className="font-serif text-3xl font-semibold">{dict.home.stepsTitle}</h2>
         <ol className="mt-8 grid gap-6 md:grid-cols-3">
           {dict.home.steps.map((step, i) => (
@@ -64,7 +64,7 @@ export default async function HomePage() {
       </section>
 
       <section className="border-t border-border bg-surface-2">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-6 px-4 py-12 sm:px-6">
+        <div className="mx-auto flex max-w-[90rem] flex-wrap items-center justify-between gap-6 px-4 py-12 sm:px-6 lg:px-10">
           <div>
             <h2 className="font-serif text-2xl font-semibold sm:text-3xl">{dict.home.ctaTitle}</h2>
             <p className="mt-2 text-muted">{dict.home.ctaText}</p>

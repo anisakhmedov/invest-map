@@ -2,14 +2,14 @@
 
 /* Design tokens — light is the default, dark overrides via [data-theme="dark"] */
 :root {
-  --bg: #f7f8f6;
+  --bg: #f6f7f9;
   --surface: #ffffff;
-  --surface-2: #eef1ed;
-  --fg: #14201b;
-  --fg-muted: #4a5a52;
-  --border: #d5ddd7;
+  --surface-2: #eceff4;
+  --fg: #111827;
+  --fg-muted: #4b5565;
+  --border: #d9dee7;
   /* Field outlines need 3:1 against the surface (WCAG 1.4.11); --border is only for decoration. */
-  --field-border: #7b8a82;
+  --field-border: #7a8494;
   --brand: #0b6b57;
   --brand-fg: #ffffff;
   --brand-soft: #d9efe8;
@@ -20,16 +20,16 @@
 }
 
 :root[data-theme="dark"] {
-  --bg: #0d1512;
-  --surface: #131e1a;
-  --surface-2: #1a2822;
-  --fg: #e8efeb;
-  --fg-muted: #a3b5ac;
-  --border: #2a3b34;
-  --field-border: #6b7e75;
-  --brand: #3fc3a2;
-  --brand-fg: #06201a;
-  --brand-soft: #123329;
+  --bg: #0b0f17;
+  --surface: #121823;
+  --surface-2: #1a2230;
+  --fg: #e8ecf3;
+  --fg-muted: #9ca8bb;
+  --border: #263042;
+  --field-border: #6c7b92;
+  --brand: #45cfae;
+  --brand-fg: #06211b;
+  --brand-soft: #123a37;
   --accent: #e8a540;
   --focus: #7fb0ff;
   color-scheme: dark;

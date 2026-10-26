@@ -45,7 +45,7 @@ export function UserForm({
   const [state, action, pending] = useActionState<UserFormState, FormData>(saveUser.bind(null, lang, id), undefined);
 
   return (
-    <form action={action} className="max-w-2xl space-y-5">
+    <form action={action} className="max-w-3xl space-y-5">
       {state?.error && <ErrorNote>{errors[state.error] ?? errors.invalid}</ErrorNote>}
       {state?.saved && <SavedNote>{labels.saved}</SavedNote>}
 

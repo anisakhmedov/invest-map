@@ -18,14 +18,31 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
     { href: "contacts", label: dict.nav.contacts },
   ];
   return (
-    <header className="border-b border-border bg-surface">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3 sm:px-6">
-        <Link href={`/${locale}`} className="text-lg font-bold text-brand">
-          {dict.site.name}
+    <header className="sticky top-0 z-30 border-b border-border/70 bg-surface/85 backdrop-blur-md supports-[backdrop-filter]:bg-surface/75">
+      <div className="mx-auto flex max-w-[90rem] flex-wrap items-center gap-x-8 gap-y-2 px-4 py-3 sm:px-6 lg:px-10">
+        <Link href={`/${locale}`} className="group flex items-center gap-2.5 rounded-lg">
+          <span
+            aria-hidden="true"
+            className="grid size-9 place-content-center rounded-xl bg-brand text-brand-fg shadow-[inset_0_1px_0_oklch(1_0_0/0.2),0_2px_6px_-1px_oklch(0_0_0/0.25)] transition-transform duration-200 group-hover:-rotate-6 motion-reduce:transition-none"
+          >
+            <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z" />
+              <circle cx="12" cy="10" r="2.3" />
+            </svg>
+          </span>
+          <span className="font-serif text-xl font-bold tracking-tight text-fg">{dict.site.name}</span>
         </Link>
-        <nav aria-label={dict.nav.mainLabel} className="order-last flex w-full gap-4 overflow-x-auto text-sm [scrollbar-width:none] sm:order-none sm:w-auto">
+        <nav
+          aria-label={dict.nav.mainLabel}
+          className="order-last flex w-full gap-1 overflow-x-auto text-sm [scrollbar-width:none] sm:order-none sm:w-auto"
+        >
           {links.map((l) => (
-            <NavLink key={l.href} href={`/${locale}/${l.href}`} className="whitespace-nowrap py-1 text-muted hover:text-fg">
+            <NavLink
+              key={l.href}
+              href={`/${locale}/${l.href}`}
+              className="whitespace-nowrap rounded-full px-3.5 py-1.5 font-medium text-muted transition-colors hover:bg-surface-2 hover:text-fg"
+              activeClassName="!bg-brand-soft !text-brand"
+            >
               {l.label}
             </NavLink>
           ))}

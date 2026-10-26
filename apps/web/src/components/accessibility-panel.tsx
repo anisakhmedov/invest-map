@@ -117,7 +117,7 @@ export function AccessibilityPanel({ labels }: { labels: Labels }) {
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((o) => !o)}
-        className="flex items-center gap-1.5 rounded-lg border border-border bg-surface px-2.5 py-1.5 text-sm"
+        className="flex min-h-9 items-center gap-1.5 rounded-xl border border-field-border bg-surface px-3 py-1.5 text-sm font-medium transition-colors hover:border-fg/60"
       >
         <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
           <circle cx="12" cy="12" r="9" />

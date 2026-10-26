@@ -37,7 +37,7 @@ export function RequestForm({
   const field = state?.field;
 
   return (
-    <form action={action} className="max-w-2xl space-y-5" encType="multipart/form-data">
+    <form action={action} className="max-w-3xl space-y-5" encType="multipart/form-data">
       {state?.error && (
         <ErrorNote>
           {errors[state.error] ?? errors.invalid}

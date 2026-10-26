@@ -42,7 +42,7 @@ async function Tracking({ params }: { params: PageProps<"/[lang]/request/track/[
 
   return (
     <PageShell title={t.title.replace("{number}", String(request.number))}>
-      <div className="max-w-3xl space-y-8">
+      <div className="max-w-4xl space-y-8">
         <p className="rounded-lg border border-border bg-surface-2 px-3 py-2 text-sm">{t.saveLink}</p>
 
         <dl className="grid gap-3 text-sm sm:grid-cols-3">

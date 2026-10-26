@@ -11,7 +11,7 @@ export function Skeleton({ className = "" }: { className?: string }) {
 /** Wraps a skeleton so assistive tech hears one "loading" status, not a stream of empty boxes. */
 export function SkeletonPage({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <div role="status" aria-busy="true" className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+    <div role="status" aria-busy="true" className="mx-auto w-full max-w-[90rem] px-4 py-12 sm:px-6 lg:px-10 sm:py-16">
       <span className="sr-only">{label}</span>
       {children}
     </div>

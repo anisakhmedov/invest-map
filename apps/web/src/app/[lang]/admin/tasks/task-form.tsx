@@ -69,7 +69,7 @@ export function TaskForm({
   }
 
   return (
-    <form onSubmit={submit} className="max-w-2xl space-y-5">
+    <form onSubmit={submit} className="max-w-3xl space-y-5">
       {error && <ErrorNote>{error}</ErrorNote>}
       {requestLabel && (
         <p className="rounded-lg bg-brand-soft px-3 py-2 text-sm">
