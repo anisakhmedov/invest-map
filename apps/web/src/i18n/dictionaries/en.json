@@ -1,0 +1,778 @@
+{
+  "site": {
+    "name": "InvestMap",
+    "tagline": "Interactive investment map"
+  },
+  "nav": {
+    "map": "Map",
+    "projects": "Projects",
+    "auction": "Auction",
+    "news": "News",
+    "contacts": "Contacts",
+    "mainLabel": "Main menu",
+    "pagination": "Pages"
+  },
+  "home": {
+    "title": "Find investment opportunities on the map",
+    "lead": "Territories, land plots and auction lots — all on one interactive map.",
+    "openMap": "Open the map",
+    "sendRequest": "Send a request",
+    "stepsTitle": "How it works",
+    "steps": [
+      {
+        "title": "Search the map",
+        "text": "Filter by district, industry or price and find a suitable plot."
+      },
+      {
+        "title": "Review the details",
+        "text": "Each district and plot card lists area, price, infrastructure and documents."
+      },
+      {
+        "title": "Send a request",
+        "text": "Write directly to the responsible officer about the object you like."
+      }
+    ],
+    "ctaTitle": "Ready to find a place for your project?",
+    "ctaText": "Open the map and compare territories."
+  },
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": "Language",
+  "skipToContent": "Skip to main content",
+  "admin": {
+    "login": {
+      "title": "Sign in",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "invalid": "Invalid email or password",
+      "tooMany": "Too many attempts. Try again later",
+      "forbidden": "You do not have access to the admin panel"
+    },
+    "dashboard": "Dashboard",
+    "welcome": "Welcome",
+    "role": "Role",
+    "logout": "Sign out",
+    "nav": {
+      "dashboard": "Dashboard",
+      "pages": "Pages and news",
+      "media": "Media library",
+      "settings": "Site settings",
+      "viewSite": "View site",
+      "map": "Map editor",
+      "invest": "Investment table",
+      "auction": "Auction lots",
+      "requests": "Requests",
+      "tasks": "Tasks",
+      "reports": "Reports",
+      "label": "Admin sections",
+      "users": "Users",
+      "roles": "Roles and rights",
+      "audit": "Audit log"
+    },
+    "common": {
+      "save": "Save",
+      "create": "Create",
+      "edit": "Edit",
+      "delete": "Delete",
+      "confirmDelete": "Delete this item?",
+      "status": "Status",
+      "draft": "Draft",
+      "published": "Published",
+      "actions": "Actions",
+      "back": "Back",
+      "saved": "Saved",
+      "kind": "Type",
+      "kindPage": "Page",
+      "kindNews": "News",
+      "updated": "Updated"
+    },
+    "pages": {
+      "title": "Pages and news",
+      "new": "New page",
+      "edit": "Edit page",
+      "slug": "Address (slug)",
+      "slugHint": "Latin letters, digits and hyphens. Example: about-us",
+      "titleField": "Title",
+      "bodyField": "Text",
+      "bodyHint": "Separate paragraphs with a blank line.",
+      "empty": "No pages yet. Create the first one.",
+      "languages": "Languages"
+    },
+    "media": {
+      "title": "Media library",
+      "upload": "Upload file",
+      "file": "File",
+      "alt": "Image description",
+      "hint": "JPG, PNG, WebP, GIF or PDF. Up to 10 MB.",
+      "empty": "No files yet. Upload the first one.",
+      "size": "Size",
+      "open": "Open"
+    },
+    "settings": {
+      "title": "Site settings",
+      "contacts": "Contact details",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "requests": {
+        "title": "Requests",
+        "slaHours": "Answer deadline, hours",
+        "slaHint": "How many hours after a request arrives it should be answered.",
+        "notifyEmail": "Email for new requests",
+        "notifyHint": "Notifications about new requests and visitor replies go here. May be left empty."
+      }
+    },
+    "errors": {
+      "slugInvalid": "Invalid address: use lowercase Latin letters, digits and single hyphens only.",
+      "slugTaken": "This address is taken. Choose another.",
+      "titleRequired": "A Uzbek title is required to publish.",
+      "invalid": "Check the fields and try again.",
+      "cannotPublish": "You are not allowed to publish. Save as a draft.",
+      "notFound": "Item not found.",
+      "empty": "Choose a file.",
+      "too_large": "The file is larger than 10 MB.",
+      "unsupported_type": "This file type is not supported.",
+      "storageUnavailable": "File storage is unavailable right now. Try again later.",
+      "nameRequired": "A Uzbek name is required to publish.",
+      "self_intersection": "The outline crosses itself. Fix the vertices.",
+      "zero_area": "The shape has zero area.",
+      "too_many_vertices": "Too many vertices (up to 5000 are allowed).",
+      "corners_bowtie": "The image corners are tangled. Place them so they form a quadrilateral.",
+      "corners_degenerate": "The image corners lie on one line.",
+      "corners_invalid": "The image corners are invalid.",
+      "planNeedsImage": "Pick an image from the media library for the plan.",
+      "import_not_json": "The file is not valid JSON.",
+      "import_not_geojson": "This is not GeoJSON.",
+      "import_too_large": "The file is larger than 5 MB.",
+      "import_too_many_features": "The file has more than 500 features.",
+      "import_nothing": "The file has no territories, roads or stops to import.",
+      "csv_empty": "The file is empty.",
+      "csv_too_large": "The file is larger than 5 MB.",
+      "csv_too_many_rows": "The file has more than 2000 rows.",
+      "csv_unterminated_quote": "The file has an unclosed quote.",
+      "csv_missing_columns": "Required columns are missing:",
+      "csv_nothing": "There are no valid rows to import.",
+      "unknown_region": "This territory was not found.",
+      "unknown_object": "This object was not found.",
+      "ends_before_start": "The end must be after the start.",
+      "result_needs_closed": "The final price can only be set for the “Closed” status.",
+      "mediaInUsePlan": "This image is used as a plan on the map. Delete the plan first.",
+      "regionHasObjects": "The territory has investment objects. Move them to another territory or delete them first.",
+      "invalidAssignee": "This person cannot be assigned.",
+      "unknownRequest": "Request not found.",
+      "emailTaken": "This email address is already in use.",
+      "weakPassword": "The password is too weak: use at least 10 characters with a letter and a digit.",
+      "forbiddenRole": "Only a super administrator can manage super administrator accounts.",
+      "selfLockout": "You cannot change the role of your own account or disable it.",
+      "lastSuperAdmin": "At least one active super administrator must remain."
+    },
+    "mapEditor": {
+      "title": "Map editor",
+      "modes": {
+        "region": "Territories",
+        "road": "Roads",
+        "stop": "Stops",
+        "plan": "Plans"
+      },
+      "newItem": {
+        "region": "New territory",
+        "road": "New road",
+        "stop": "New stop",
+        "plan": "New plan"
+      },
+      "empty": "No records yet.",
+      "redraw": "Redraw",
+      "hintDraw": {
+        "region": "Click each corner of the territory on the map. Click the last point again to finish.",
+        "road": "Click the points of the road on the map. Click the last point again to finish.",
+        "stop": "Click on the map where the stop is."
+      },
+      "hintEdit": "Drag vertices to reshape. The small dot between two vertices adds a new one.",
+      "hintPlan": "Drag the yellow dots to align the image with the map.",
+      "multiPart": "This territory has several parts. Its shape cannot be changed here, only its details.",
+      "name": "Name",
+      "description": "Description",
+      "kind": "Type",
+      "kinds": {
+        "road": "Road",
+        "rail": "Railway",
+        "bus": "Bus",
+        "train": "Train",
+        "other": "Other"
+      },
+      "image": "Plan image",
+      "noImages": "Upload an image to the media library first.",
+      "opacity": "Opacity",
+      "close": "Close",
+      "geometryMissing": "Draw the shape on the map first.",
+      "import": "Import GeoJSON",
+      "importHint": "A .geojson or .json file up to 5 MB. Everything is added as drafts.",
+      "imported": "Added",
+      "skipped": "skipped",
+      "export": "Download GeoJSON",
+      "loadError": "The map could not be loaded.",
+      "discardConfirm": "You have unsaved changes. Discard them?"
+    },
+    "invest": {
+      "title": "Investment table",
+      "new": "New object",
+      "edit": "Edit object",
+      "empty": "No objects match the filters.",
+      "export": "Download CSV",
+      "columns": {
+        "name": "Name",
+        "region": "Territory",
+        "category": "Industry",
+        "area": "Area, ha",
+        "price": "Price, USD",
+        "status": "Status",
+        "publish": "Publication",
+        "updated": "Updated"
+      },
+      "filters": {
+        "search": "Search",
+        "region": "Territory",
+        "category": "Industry",
+        "status": "Status",
+        "publish": "Publication",
+        "all": "All",
+        "apply": "Apply",
+        "reset": "Reset"
+      },
+      "fields": {
+        "region": "Territory",
+        "name": "Name",
+        "description": "Description",
+        "category": "Industry",
+        "status": "Status",
+        "area": "Area, ha",
+        "price": "Price, USD",
+        "priceHint": "If left empty, the price is shown as “on request”.",
+        "lng": "Longitude (lng)",
+        "lat": "Latitude (lat)",
+        "coordsHint": "Take coordinates from the map editor or a point on the map. Example: longitude 69.24, latitude 41.30.",
+        "publish": "Publication",
+        "contacts": "Contact person",
+        "contactName": "Name",
+        "contactPhone": "Phone",
+        "contactEmail": "Email",
+        "documents": "Documents",
+        "documentsHint": "Choose files from the media library.",
+        "noDocuments": "The media library has no files."
+      },
+      "pager": {
+        "prev": "Previous",
+        "next": "Next",
+        "total": "Total"
+      },
+      "csv": {
+        "title": "Import from CSV",
+        "hint": "Upload a file: we check it first, then you confirm the import. Invalid rows are skipped.",
+        "columnsHint": "Required columns: name, region, category, area, lng, lat. Optional: slug, status, price, publish, name_oz/ru/en, description_*, contact_name, contact_phone, contact_email. A row with an existing slug updates that object.",
+        "choose": "CSV file",
+        "found": "Valid rows",
+        "willUpdate": "will be updated",
+        "errorsTitle": "Errors (these rows will be skipped)",
+        "row": "row",
+        "field": "column",
+        "ignored": "Ignored columns",
+        "importNow": "Import",
+        "created": "Created",
+        "updated": "Updated",
+        "skipped": "Skipped",
+        "downgraded": "saved as drafts",
+        "rowErrors": {
+          "unknown_region": "territory not found",
+          "invalid_number": "invalid number",
+          "invalid_slug": "invalid slug",
+          "duplicate_slug": "slug is repeated in the file",
+          "invalid_value": "invalid value",
+          "name_required": "a Uzbek name is required to publish"
+        }
+      },
+      "truncated": "Only the latest {shown} of {total} objects are shown. Use the filters or download the CSV to see the rest."
+    },
+    "auction": {
+      "title": "Auction lots",
+      "new": "New lot",
+      "edit": "Edit lot",
+      "empty": "No lots yet.",
+      "columns": {
+        "object": "Object",
+        "period": "Period",
+        "startPrice": "Start price",
+        "finalPrice": "Final price"
+      },
+      "fields": {
+        "object": "Object",
+        "status": "Status",
+        "publish": "Publication",
+        "startsAt": "Starts",
+        "endsAt": "Ends",
+        "timeHint": "Time is in Tashkent time (UTC+5).",
+        "startPrice": "Start price, USD",
+        "finalPrice": "Final price, USD",
+        "finalHint": "Only for the “Closed” status.",
+        "terms": "Terms",
+        "resultNote": "Result note"
+      },
+      "statuses": {
+        "SCHEDULED": "Scheduled",
+        "OPEN": "Open",
+        "CLOSED": "Closed",
+        "CANCELLED": "Cancelled"
+      }
+    },
+    "requests": {
+      "title": "Requests",
+      "request": "Request",
+      "thread": "Conversation",
+      "staff": "Staff",
+      "internalLabel": "internal note",
+      "email": "Email",
+      "phone": "Phone",
+      "object": "Object",
+      "firstResponse": "First reply",
+      "tasks": "Tasks",
+      "noTasks": "No tasks for this request.",
+      "newTask": "Create a task",
+      "empty": "No requests found.",
+      "unassigned": "Unassigned",
+      "overdueBadge": "overdue",
+      "columns": {
+        "subject": "Subject",
+        "from": "From",
+        "status": "Status",
+        "assignee": "Assignee",
+        "due": "Answer due",
+        "created": "Sent"
+      },
+      "filters": {
+        "search": "Search (number, subject, name, email)",
+        "all": "All",
+        "me": "Mine",
+        "none": "Unassigned",
+        "overdue": "Overdue only",
+        "apply": "Apply",
+        "reset": "Reset"
+      },
+      "statuses": {
+        "NEW": "New",
+        "IN_PROGRESS": "In progress",
+        "ANSWERED": "Answered",
+        "CLOSED": "Closed"
+      },
+      "controls": {
+        "status": "Status",
+        "assignee": "Assignee",
+        "unassigned": "Unassigned",
+        "reply": "Reply or note",
+        "internalNote": "Internal note (hidden from the requester)",
+        "internalHint": "A note does not change the status or send an email.",
+        "send": "Send",
+        "sent": "Sent."
+      }
+    },
+    "tasks": {
+      "title": "Tasks",
+      "new": "New task",
+      "edit": "Edit task",
+      "empty": "No tasks.",
+      "all": "All",
+      "mine": "Mine only",
+      "apply": "Apply",
+      "late": "overdue",
+      "fields": {
+        "title": "Title",
+        "description": "Description",
+        "status": "Status",
+        "dueAt": "Due",
+        "timeHint": "Tashkent time (UTC+5).",
+        "assignee": "Assignee",
+        "unassigned": "Unassigned",
+        "request": "Request"
+      },
+      "statuses": {
+        "TODO": "To do",
+        "DOING": "In progress",
+        "DONE": "Done"
+      }
+    },
+    "reports": {
+      "title": "Reports",
+      "from": "From date",
+      "to": "To date",
+      "apply": "Show",
+      "reset": "Reset",
+      "export": "Download CSV",
+      "badRange": "The dates are not valid, so all requests are shown.",
+      "total": "Total requests",
+      "overdue": "Overdue",
+      "avgResponse": "Average time to first reply",
+      "hours": "h",
+      "slaMet": "Answered on time",
+      "byStatus": "By status",
+      "byMonth": "By month",
+      "byRegion": "By territory",
+      "noRegion": "No object",
+      "noData": "No data.",
+      "mailOn": "Email sending is on.",
+      "mailOff": "Email sending is not set up (no SMTP_URL): messages wait in the queue.",
+      "mailPending": "Emails in the queue"
+    },
+    "cabinet": {
+      "myOpen": "My open requests",
+      "unassigned": "New and unassigned",
+      "overdue": "Overdue",
+      "myRequests": "My requests",
+      "noRequests": "You have no open requests assigned.",
+      "myTasks": "My tasks",
+      "noTasks": "No open tasks.",
+      "due": "Due",
+      "late": "overdue",
+      "noDue": "No due date"
+    },
+    "users": {
+      "title": "Users",
+      "new": "New user",
+      "edit": "Edit user",
+      "search": "Search (name or email)",
+      "role": "Role",
+      "state": "State",
+      "all": "All",
+      "active": "Active",
+      "inactive": "Disabled",
+      "apply": "Apply",
+      "reset": "Reset",
+      "empty": "No users found.",
+      "you": "you",
+      "created": "Added",
+      "fields": {
+        "email": "Email",
+        "fullName": "Full name",
+        "locale": "Interface language",
+        "role": "Role",
+        "isActive": "Account is active (can sign in)",
+        "password": "Password",
+        "newPassword": "New password"
+      },
+      "passwordHint": "At least 10 characters, with a letter and a digit.",
+      "newPasswordHint": "Leave empty to keep the current password. Setting a new one signs the person out everywhere.",
+      "signOutNote": "If the role, state or password changes, the person has to sign in again.",
+      "selfNote": "You cannot change the role of your own account or disable it.",
+      "pager": {
+        "prev": "Previous",
+        "next": "Next",
+        "total": "Total"
+      }
+    },
+    "roles": {
+      "title": "Roles and rights",
+      "lead": "Each role shows what it is allowed to do. The rights are set by the system; to change what a person can do, change their role in the Users section.",
+      "users": "Users",
+      "everything": "All rights",
+      "noRights": "Cannot open the admin panel",
+      "allowed": "Allowed",
+      "denied": "No access",
+      "resource": "Section",
+      "resources": {
+        "page": "Pages and news",
+        "media": "Media library",
+        "settings": "Site settings",
+        "map.layer": "Map layers",
+        "map.feature": "Map objects",
+        "invest": "Investment table",
+        "auction": "Auction lots",
+        "request": "Requests",
+        "task": "Tasks",
+        "report": "Reports",
+        "user": "Users",
+        "role": "Roles",
+        "audit": "Audit log"
+      },
+      "actions": {
+        "view": "View",
+        "create": "Create",
+        "update": "Edit",
+        "delete": "Delete",
+        "publish": "Publish"
+      },
+      "names": {
+        "SUPER_ADMIN": "Super administrator",
+        "ADMIN": "Administrator",
+        "CONTENT_EDITOR": "Content editor",
+        "MAP_EDITOR": "Map editor",
+        "REQUEST_MANAGER": "Request manager",
+        "INVESTOR": "Investor"
+      }
+    },
+    "audit": {
+      "title": "Audit log",
+      "lead": "Every data change and sign-in. Entries cannot be edited or deleted.",
+      "filters": {
+        "action": "Action (e.g. page.update)",
+        "entity": "Object type",
+        "user": "User",
+        "from": "From date",
+        "to": "To date",
+        "all": "All",
+        "apply": "Apply",
+        "reset": "Reset"
+      },
+      "columns": {
+        "time": "Time",
+        "user": "Who",
+        "action": "Action",
+        "object": "Object",
+        "ip": "IP address",
+        "details": "Details"
+      },
+      "empty": "No entries found.",
+      "system": "System or guest",
+      "deletedUser": "deleted account",
+      "show": "Show",
+      "before": "Before",
+      "after": "After",
+      "noDetails": "No further details.",
+      "truncated": "The text was shortened.",
+      "badRange": "The dates are not valid, so all entries are shown.",
+      "pager": {
+        "prev": "Previous",
+        "next": "Next",
+        "total": "Total"
+      }
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "sections": "Sections"
+  },
+  "about": {
+    "title": "About the project",
+    "lead": "InvestMap brings the investment opportunities of the regions together on one interactive map.",
+    "blocks": [
+      {
+        "title": "Purpose",
+        "text": "Show investors the information they need, quickly and reliably."
+      },
+      {
+        "title": "What is inside",
+        "text": "Territories, land plots, roads, stops, an investment table and auction lots."
+      },
+      {
+        "title": "Who it is for",
+        "text": "Investors, entrepreneurs and specialists in regional development."
+      }
+    ]
+  },
+  "news": {
+    "title": "News",
+    "lead": "Latest announcements from the portal and the investment sector.",
+    "empty": "No news yet",
+    "emptyHint": "News will appear here once it is added in the admin panel."
+  },
+  "contacts": {
+    "title": "Contacts",
+    "lead": "If you have questions, get in touch.",
+    "notSet": "Contact details will appear here once they are entered in the site settings.",
+    "requestSoon": "The request form will be added in a later stage."
+  },
+  "soon": {
+    "title": "Section in progress",
+    "text": "This section is being built and will open soon.",
+    "back": "Back to home"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The address is wrong or the page has moved.",
+    "home": "Go to home"
+  },
+  "public": {
+    "readMore": "Read more",
+    "published": "Published",
+    "translationFallback": "This text has not been translated into the selected language yet.",
+    "loading": "Loading…"
+  },
+  "map": {
+    "mapLabel": "Investment map",
+    "searchLabel": "Search",
+    "searchPlaceholder": "District or object name",
+    "noResults": "Nothing found",
+    "layers": "Layers",
+    "layerRegions": "Territories",
+    "layerObjects": "Objects",
+    "filters": "Filters",
+    "reset": "Reset",
+    "category": "Industry",
+    "status": "Status",
+    "areaRange": "Area (ha)",
+    "areaMin": "From",
+    "areaMax": "To",
+    "priceMax": "Price, USD up to",
+    "found": "Found",
+    "legend": "Legend",
+    "listTitle": "List of objects",
+    "showList": "List",
+    "showMap": "Map",
+    "emptyList": "No objects match the filters.",
+    "categories": {
+      "industry": "Industry",
+      "agriculture": "Agriculture",
+      "tourism": "Tourism",
+      "energy": "Energy",
+      "logistics": "Logistics",
+      "services": "Services"
+    },
+    "statuses": {
+      "AVAILABLE": "Available",
+      "RESERVED": "Reserved",
+      "AUCTION": "At auction",
+      "TAKEN": "Taken"
+    },
+    "region": "Territory",
+    "objectsCount": "Objects",
+    "availableCount": "Available",
+    "totalArea": "Total area",
+    "area": "Area",
+    "price": "Price",
+    "priceOnRequest": "On request",
+    "sendRequest": "Send a request",
+    "close": "Close",
+    "ha": "ha",
+    "loadError": "The map could not be loaded.",
+    "noData": "There is no data on the map yet.",
+    "selected": "Selected",
+    "layerRoads": "Roads",
+    "layerStops": "Stops",
+    "layerPlans": "Plans",
+    "kinds": {
+      "road": "Road",
+      "rail": "Railway",
+      "bus": "Bus stop",
+      "train": "Train station",
+      "other": "Stop"
+    },
+    "typeLabel": "Type",
+    "auctionLabel": "Auction",
+    "auctionStartPrice": "Start price"
+  },
+  "projects": {
+    "lead": "A table of published investment objects. Filter, sort and see them on the map.",
+    "all": "All",
+    "apply": "Apply",
+    "columns": {
+      "name": "Name",
+      "region": "Territory",
+      "category": "Industry",
+      "area": "Area",
+      "price": "Price",
+      "status": "Status",
+      "map": "On map"
+    },
+    "pager": {
+      "prev": "Previous",
+      "next": "Next",
+      "total": "Total"
+    }
+  },
+  "auction": {
+    "lead": "Auction lots for investment objects: dates, start price, terms and results.",
+    "empty": "No auction lots yet",
+    "emptyHint": "Lots will appear here once they are added in the admin panel.",
+    "current": "Current and scheduled",
+    "finished": "Finished",
+    "startsAt": "Starts",
+    "endsAt": "Ends",
+    "startPrice": "Start price",
+    "finalPrice": "Final price",
+    "terms": "Terms",
+    "result": "Result",
+    "viewOnMap": "Show on map",
+    "statuses": {
+      "SCHEDULED": "Scheduled",
+      "OPEN": "Open",
+      "CLOSED": "Closed",
+      "CANCELLED": "Cancelled"
+    }
+  },
+  "request": {
+    "title": "Send a request",
+    "lead": "Ask a question or leave a request about an object. After we reply you can continue the conversation through a private link.",
+    "fields": {
+      "subject": "Subject",
+      "message": "Message",
+      "name": "Your name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "files": "Files (optional)",
+      "filesHint": "Up to 3 files: JPG, PNG, WebP, GIF or PDF, each up to 5 MB.",
+      "relatedObject": "Request about the object"
+    },
+    "submit": "Send",
+    "privacy": "Your details are used only to answer your request.",
+    "errors": {
+      "tooFast": "The form was sent too quickly. Wait a few seconds and try again.",
+      "formExpired": "The form has expired. Refresh the page and send it again.",
+      "rateLimited": "Too many requests. Try again later.",
+      "invalid": "Check the fields",
+      "rejected": "The message was not sent. Check the text and try again.",
+      "tooManyFiles": "You can upload at most 3 files.",
+      "fileTooLarge": "The file is larger than 5 MB.",
+      "unsupportedFile": "This file type is not supported.",
+      "storageUnavailable": "The files could not be saved. Try again later.",
+      "unknownObject": "The selected object was not found.",
+      "notFound": "Request not found.",
+      "closed": "This request is closed. Send a new one."
+    },
+    "track": {
+      "title": "Request #{number}",
+      "saveLink": "Save the address of this page: it is the only way to follow your request. Do not share the link.",
+      "status": "Status",
+      "created": "Sent",
+      "thread": "Conversation",
+      "you": "You",
+      "staff": "Investment portal team",
+      "attachments": "Files",
+      "replyTitle": "Write a reply",
+      "replyLabel": "Your message",
+      "send": "Send",
+      "sent": "Message sent.",
+      "closedNote": "This request is closed. If you have a new question, send a new request."
+    }
+  },
+  "mail": {
+    "received": {
+      "subject": "Your request #{number} has been received",
+      "body": "Hello, {name}!\n\nWe received your request #{number}: “{subject}”.\n\nFollow the answer and continue the conversation here:\n{url}\n\nKeep this link private: anyone who has it can read the conversation."
+    },
+    "reply": {
+      "subject": "Reply to your request #{number}",
+      "body": "Hello, {name}!\n\n{excerpt}\n\nRead the full reply and answer here:\n{url}"
+    },
+    "staffNew": {
+      "subject": "New request #{number}: {subject}",
+      "body": "From: {name}\n\n{excerpt}\n\nOpen: {adminUrl}"
+    },
+    "staffReply": {
+      "subject": "New message in request #{number}",
+      "body": "{name} wrote:\n\n{excerpt}\n\nOpen: {adminUrl}"
+    }
+  },
+  "a11y": {
+    "open": "Accessibility",
+    "title": "Accessibility settings",
+    "fontSize": "Text size",
+    "fontMd": "A",
+    "fontLg": "A+",
+    "fontXl": "A++",
+    "contrast": "High contrast",
+    "motion": "Turn off animations",
+    "reset": "Reset",
+    "close": "Close"
+  }
+}

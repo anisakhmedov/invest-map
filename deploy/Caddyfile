@@ -1,0 +1,30 @@
+{
+	email {$ACME_EMAIL}
+}
+
+# Caddy gets and renews the HTTPS certificate by itself once DNS for the domain points at this server.
+{$DOMAIN} {
+	encode zstd gzip
+
+	# Uploads: 10 MB per file plus form overhead (matches the app's Server Action limit).
+	request_body {
+		max_size 12MB
+	}
+
+	# The app trusts the LAST X-Forwarded-For entry, which is the address Caddy itself saw.
+	reverse_proxy web:3000 {
+		header_up X-Forwarded-For {remote_host}
+		health_uri /api/health
+		health_interval 30s
+	}
+
+	log {
+		output stdout
+		format console
+	}
+}
+
+# www goes to the main address.
+www.{$DOMAIN} {
+	redir https://{$DOMAIN}{uri} permanent
+}

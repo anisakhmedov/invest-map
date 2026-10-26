@@ -1,0 +1,25 @@
+-- Row Level Security on every table, with no policies.
+-- The app talks to PostgreSQL directly through Prisma (table owner / postgres role, which bypass RLS),
+-- so nothing changes for the application. On Supabase the public REST API (anon / authenticated roles)
+-- is denied on every table instead of exposing user rows and password hashes.
+ALTER TABLE "Role" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "RolePermission" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "User" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "Session" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "AuditLog" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "SiteSetting" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "Page" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "MediaAsset" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "Region" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "InvestObject" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "Auction" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "_ObjectDocuments" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "Road" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "Stop" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "PlanOverlay" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "Request" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "RequestMessage" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "RequestAttachment" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "Task" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "EmailOutbox" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "_prisma_migrations" ENABLE ROW LEVEL SECURITY;

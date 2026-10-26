@@ -1,0 +1,778 @@
+{
+  "site": {
+    "name": "InvestMap",
+    "tagline": "Interaktiv investitsiya xaritasi"
+  },
+  "nav": {
+    "map": "Xarita",
+    "projects": "Loyihalar",
+    "auction": "Auksion",
+    "news": "Yangiliklar",
+    "contacts": "Aloqa",
+    "mainLabel": "Asosiy menyu",
+    "pagination": "Sahifalar"
+  },
+  "home": {
+    "title": "Investitsiya imkoniyatlarini xaritada toping",
+    "lead": "Hududlar, yer uchastkalari va auksion lotlari — barchasi bitta interaktiv xaritada.",
+    "openMap": "Xaritani ochish",
+    "sendRequest": "Murojaat yuborish",
+    "stepsTitle": "Qanday ishlaydi",
+    "steps": [
+      {
+        "title": "Xaritadan qidiring",
+        "text": "Hudud, soha yoki narx bo‘yicha filtrlang va mos uchastkani toping."
+      },
+      {
+        "title": "Ma’lumotni ko‘ring",
+        "text": "Har bir hudud va uchastka kartochkasida maydon, narx, infratuzilma va hujjatlar bor."
+      },
+      {
+        "title": "Murojaat yuboring",
+        "text": "Qiziqqan obyekt bo‘yicha mas’ul xodimga to‘g‘ridan-to‘g‘ri murojaat qiling."
+      }
+    ],
+    "ctaTitle": "Loyihangiz uchun joy topishga tayyormisiz?",
+    "ctaText": "Xaritani oching va hududlarni solishtiring."
+  },
+  "theme": {
+    "label": "Mavzu",
+    "light": "Yorug‘",
+    "dark": "Tungi",
+    "system": "Tizim"
+  },
+  "language": "Til",
+  "skipToContent": "Asosiy kontentga o‘tish",
+  "admin": {
+    "login": {
+      "title": "Tizimga kirish",
+      "email": "Elektron pochta",
+      "password": "Parol",
+      "submit": "Kirish",
+      "invalid": "Elektron pochta yoki parol noto‘g‘ri",
+      "tooMany": "Juda ko‘p urinish. Keyinroq qayta urinib ko‘ring",
+      "forbidden": "Sizda boshqaruv paneliga kirish huquqi yo‘q"
+    },
+    "dashboard": "Boshqaruv paneli",
+    "welcome": "Xush kelibsiz",
+    "role": "Rol",
+    "logout": "Chiqish",
+    "nav": {
+      "dashboard": "Boshqaruv paneli",
+      "pages": "Sahifalar va yangiliklar",
+      "media": "Media kutubxonasi",
+      "settings": "Sayt sozlamalari",
+      "viewSite": "Saytni ko‘rish",
+      "map": "Xarita tahrirlash",
+      "invest": "Investitsiya jadvali",
+      "auction": "Auksion lotlari",
+      "requests": "Murojaatlar",
+      "tasks": "Vazifalar",
+      "reports": "Hisobotlar",
+      "label": "Boshqaruv bo‘limlari",
+      "users": "Foydalanuvchilar",
+      "roles": "Rollar va huquqlar",
+      "audit": "Audit jurnali"
+    },
+    "common": {
+      "save": "Saqlash",
+      "create": "Yaratish",
+      "edit": "Tahrirlash",
+      "delete": "O‘chirish",
+      "confirmDelete": "Rostdan ham o‘chirmoqchimisiz?",
+      "status": "Holat",
+      "draft": "Qoralama",
+      "published": "Chop etilgan",
+      "actions": "Amallar",
+      "back": "Ortga",
+      "saved": "Saqlandi",
+      "kind": "Turi",
+      "kindPage": "Sahifa",
+      "kindNews": "Yangilik",
+      "updated": "Yangilangan"
+    },
+    "pages": {
+      "title": "Sahifalar va yangiliklar",
+      "new": "Yangi sahifa",
+      "edit": "Sahifani tahrirlash",
+      "slug": "Manzil (slug)",
+      "slugHint": "Lotin harflari, raqamlar va chiziqcha. Masalan: about-us",
+      "titleField": "Sarlavha",
+      "bodyField": "Matn",
+      "bodyHint": "Abzatslar bo‘sh qator bilan ajratiladi.",
+      "empty": "Hali sahifalar yo‘q. Birinchisini yarating.",
+      "languages": "Tillar"
+    },
+    "media": {
+      "title": "Media kutubxonasi",
+      "upload": "Fayl yuklash",
+      "file": "Fayl",
+      "alt": "Rasm tavsifi",
+      "hint": "JPG, PNG, WebP, GIF yoki PDF. Eng ko‘pi bilan 10 MB.",
+      "empty": "Hali fayllar yo‘q. Birinchi faylni yuklang.",
+      "size": "Hajmi",
+      "open": "Ochish"
+    },
+    "settings": {
+      "title": "Sayt sozlamalari",
+      "contacts": "Aloqa ma’lumotlari",
+      "email": "Elektron pochta",
+      "phone": "Telefon",
+      "address": "Manzil",
+      "requests": {
+        "title": "Murojaatlar",
+        "slaHours": "Javob muddati, soat",
+        "slaHint": "Murojaat kelgandan keyin shuncha soat ichida javob berilishi kerak.",
+        "notifyEmail": "Yangi murojaatlar uchun pochta",
+        "notifyHint": "Yangi murojaat va murojaatchi javoblari shu manzilga yuboriladi. Bo‘sh qoldirish mumkin."
+      }
+    },
+    "errors": {
+      "slugInvalid": "Manzil noto‘g‘ri: faqat kichik lotin harflari, raqamlar va bitta chiziqcha ishlating.",
+      "slugTaken": "Bu manzil band. Boshqasini tanlang.",
+      "titleRequired": "Chop etish uchun o‘zbekcha sarlavha kerak.",
+      "invalid": "Maydonlarni tekshiring va qayta urinib ko‘ring.",
+      "cannotPublish": "Sizda chop etish huquqi yo‘q. Qoralama sifatida saqlang.",
+      "notFound": "Yozuv topilmadi.",
+      "empty": "Fayl tanlang.",
+      "too_large": "Fayl 10 MB dan katta.",
+      "unsupported_type": "Bu fayl turi qo‘llab-quvvatlanmaydi.",
+      "storageUnavailable": "Fayl ombori hozir ishlamayapti. Keyinroq urinib ko‘ring.",
+      "nameRequired": "Chop etish uchun o‘zbekcha nom kerak.",
+      "self_intersection": "Shakl o‘zini kesib o‘tadi. Cho‘qqilarni to‘g‘rilang.",
+      "zero_area": "Shaklning maydoni nolga teng.",
+      "too_many_vertices": "Cho‘qqilar juda ko‘p (5000 tagacha ruxsat etiladi).",
+      "corners_bowtie": "Rasm burchaklari chalkashgan. Ularni to‘rtburchak hosil qiladigan qilib joylang.",
+      "corners_degenerate": "Rasm burchaklari bir chiziqda yotibdi.",
+      "corners_invalid": "Rasm burchaklari noto‘g‘ri.",
+      "planNeedsImage": "Reja uchun media kutubxonasidan rasm tanlang.",
+      "import_not_json": "Fayl to‘g‘ri JSON emas.",
+      "import_not_geojson": "Bu GeoJSON emas.",
+      "import_too_large": "Fayl 5 MB dan katta.",
+      "import_too_many_features": "Fayldagi obyektlar 500 tadan ko‘p.",
+      "import_nothing": "Faylda import qilinadigan hudud, yo‘l yoki bekat topilmadi.",
+      "csv_empty": "Fayl bo‘sh.",
+      "csv_too_large": "Fayl 5 MB dan katta.",
+      "csv_too_many_rows": "Faylda 2000 tadan ortiq qator bor.",
+      "csv_unterminated_quote": "Faylda yopilmagan qo‘shtirnoq bor.",
+      "csv_missing_columns": "Majburiy ustunlar yo‘q:",
+      "csv_nothing": "Import qilinadigan to‘g‘ri qator topilmadi.",
+      "unknown_region": "Bunday hudud topilmadi.",
+      "unknown_object": "Bunday obyekt topilmadi.",
+      "ends_before_start": "Tugash vaqti boshlanishdan keyin bo‘lishi kerak.",
+      "result_needs_closed": "Yakuniy narx faqat «Yakunlangan» holatida kiritiladi.",
+      "mediaInUsePlan": "Bu rasm xaritadagi reja sifatida ishlatilmoqda. Avval rejani o‘chiring.",
+      "regionHasObjects": "Hududda investitsiya obyektlari bor. Avval ularni boshqa hududga o‘tkazing yoki o‘chiring.",
+      "invalidAssignee": "Bu xodimni biriktirib bo‘lmaydi.",
+      "unknownRequest": "Murojaat topilmadi.",
+      "emailTaken": "Bu elektron pochta allaqachon band.",
+      "weakPassword": "Parol juda oddiy: kamida 10 belgi, harf va raqam bo‘lishi kerak.",
+      "forbiddenRole": "Bosh administrator hisoblarini faqat bosh administrator boshqara oladi.",
+      "selfLockout": "O‘z hisobingizning rolini o‘zgartirib yoki uni o‘chirib bo‘lmaydi.",
+      "lastSuperAdmin": "Kamida bitta faol bosh administrator qolishi shart."
+    },
+    "mapEditor": {
+      "title": "Xarita muharriri",
+      "modes": {
+        "region": "Hududlar",
+        "road": "Yo‘llar",
+        "stop": "Bekatlar",
+        "plan": "Reja rasmlari"
+      },
+      "newItem": {
+        "region": "Yangi hudud",
+        "road": "Yangi yo‘l",
+        "stop": "Yangi bekat",
+        "plan": "Yangi reja rasmi"
+      },
+      "empty": "Hali yozuvlar yo‘q.",
+      "redraw": "Qayta chizish",
+      "hintDraw": {
+        "region": "Xaritada hudud burchaklarini birma-bir bosing. Tugatish uchun oxirgi nuqtani yana bir marta bosing.",
+        "road": "Yo‘l nuqtalarini birma-bir bosing. Tugatish uchun oxirgi nuqtani yana bir marta bosing.",
+        "stop": "Bekat joylashadigan joyni xaritada bosing."
+      },
+      "hintEdit": "Cho‘qqilarni sudrab o‘zgartiring. O‘rtadagi kichik nuqta yangi cho‘qqi qo‘shadi.",
+      "hintPlan": "Sariq nuqtalarni sudrab rasmni xaritaga moslang.",
+      "multiPart": "Bu hudud bir necha qismdan iborat. Shaklini o‘zgartirib bo‘lmaydi, faqat ma’lumotlarini tahrirlash mumkin.",
+      "name": "Nomi",
+      "description": "Tavsif",
+      "kind": "Turi",
+      "kinds": {
+        "road": "Avtomobil yo‘li",
+        "rail": "Temir yo‘l",
+        "bus": "Avtobus",
+        "train": "Poyezd",
+        "other": "Boshqa"
+      },
+      "image": "Reja rasmi",
+      "noImages": "Avval media kutubxonasiga rasm yuklang.",
+      "opacity": "Shaffoflik",
+      "close": "Yopish",
+      "geometryMissing": "Avval xaritada shaklni chizing.",
+      "import": "GeoJSON import qilish",
+      "importHint": "Fayl .geojson yoki .json, 5 MB gacha. Hammasi qoralama sifatida qo‘shiladi.",
+      "imported": "Qo‘shildi",
+      "skipped": "o‘tkazib yuborildi",
+      "export": "GeoJSON yuklab olish",
+      "loadError": "Xaritani yuklab bo‘lmadi.",
+      "discardConfirm": "Saqlanmagan o‘zgarishlar bor. Ularni tashlab yuborasizmi?"
+    },
+    "invest": {
+      "title": "Investitsiya jadvali",
+      "new": "Yangi obyekt",
+      "edit": "Obyektni tahrirlash",
+      "empty": "Filtrlarga mos obyekt topilmadi.",
+      "export": "CSV yuklab olish",
+      "columns": {
+        "name": "Nomi",
+        "region": "Hudud",
+        "category": "Soha",
+        "area": "Maydon, ga",
+        "price": "Narx, USD",
+        "status": "Holat",
+        "publish": "Chop etish",
+        "updated": "Yangilangan"
+      },
+      "filters": {
+        "search": "Qidiruv",
+        "region": "Hudud",
+        "category": "Soha",
+        "status": "Holat",
+        "publish": "Chop etish",
+        "all": "Hammasi",
+        "apply": "Qo‘llash",
+        "reset": "Tozalash"
+      },
+      "fields": {
+        "region": "Hudud",
+        "name": "Nomi",
+        "description": "Tavsif",
+        "category": "Soha",
+        "status": "Holat",
+        "area": "Maydon, ga",
+        "price": "Narx, USD",
+        "priceHint": "Bo‘sh qoldirsangiz, narx «so‘rov bo‘yicha» deb ko‘rsatiladi.",
+        "lng": "Uzunlik (lng)",
+        "lat": "Kenglik (lat)",
+        "coordsHint": "Koordinatalarni xarita muharriridan yoki xaritadagi nuqtadan oling. Masalan: uzunlik 69.24, kenglik 41.30.",
+        "publish": "Chop etish",
+        "contacts": "Aloqa uchun shaxs",
+        "contactName": "Ism",
+        "contactPhone": "Telefon",
+        "contactEmail": "Elektron pochta",
+        "documents": "Hujjatlar",
+        "documentsHint": "Media kutubxonasidagi fayllardan tanlang.",
+        "noDocuments": "Media kutubxonasida fayllar yo‘q."
+      },
+      "pager": {
+        "prev": "Oldingi",
+        "next": "Keyingi",
+        "total": "Jami"
+      },
+      "csv": {
+        "title": "CSV orqali import",
+        "hint": "Fayl yuklang: avval tekshiramiz, keyin tasdiqlaysiz. Noto‘g‘ri qatorlar o‘tkazib yuboriladi.",
+        "columnsHint": "Majburiy ustunlar: name, region, category, area, lng, lat. Ixtiyoriy: slug, status, price, publish, name_oz/ru/en, description_*, contact_name, contact_phone, contact_email. Mavjud slug bo‘yicha yozuv yangilanadi.",
+        "choose": "CSV fayl",
+        "found": "To‘g‘ri qatorlar",
+        "willUpdate": "yangilanadi",
+        "errorsTitle": "Xatolar (o‘tkazib yuboriladi)",
+        "row": "qator",
+        "field": "ustun",
+        "ignored": "E’tiborga olinmagan ustunlar",
+        "importNow": "Import qilish",
+        "created": "Yaratildi",
+        "updated": "Yangilandi",
+        "skipped": "O‘tkazib yuborildi",
+        "downgraded": "qoralamaga o‘tkazildi",
+        "rowErrors": {
+          "unknown_region": "hudud topilmadi",
+          "invalid_number": "son noto‘g‘ri",
+          "invalid_slug": "slug noto‘g‘ri",
+          "duplicate_slug": "slug faylda takrorlangan",
+          "invalid_value": "qiymat noto‘g‘ri",
+          "name_required": "chop etish uchun o‘zbekcha nom kerak"
+        }
+      },
+      "truncated": "Jadvalda {total} tadan faqat oxirgi {shown} tasi ko‘rsatilmoqda. Qolganlarini ko‘rish uchun filtrlardan foydalaning yoki CSV yuklab oling."
+    },
+    "auction": {
+      "title": "Auksion lotlari",
+      "new": "Yangi lot",
+      "edit": "Lotni tahrirlash",
+      "empty": "Hali lotlar yo‘q.",
+      "columns": {
+        "object": "Obyekt",
+        "period": "Muddat",
+        "startPrice": "Boshlang‘ich narx",
+        "finalPrice": "Yakuniy narx"
+      },
+      "fields": {
+        "object": "Obyekt",
+        "status": "Holat",
+        "publish": "Chop etish",
+        "startsAt": "Boshlanishi",
+        "endsAt": "Tugashi",
+        "timeHint": "Vaqt Toshkent vaqti bilan (UTC+5).",
+        "startPrice": "Boshlang‘ich narx, USD",
+        "finalPrice": "Yakuniy narx, USD",
+        "finalHint": "Faqat «Yakunlangan» holatida kiritiladi.",
+        "terms": "Shartlar",
+        "resultNote": "Natija haqida izoh"
+      },
+      "statuses": {
+        "SCHEDULED": "Rejalashtirilgan",
+        "OPEN": "Davom etmoqda",
+        "CLOSED": "Yakunlangan",
+        "CANCELLED": "Bekor qilingan"
+      }
+    },
+    "requests": {
+      "title": "Murojaatlar",
+      "request": "Murojaat",
+      "thread": "Yozishma",
+      "staff": "Xodim",
+      "internalLabel": "ichki qayd",
+      "email": "Elektron pochta",
+      "phone": "Telefon",
+      "object": "Obyekt",
+      "firstResponse": "Birinchi javob",
+      "tasks": "Vazifalar",
+      "noTasks": "Bu murojaat bo‘yicha vazifa yo‘q.",
+      "newTask": "Vazifa yaratish",
+      "empty": "Murojaatlar topilmadi.",
+      "unassigned": "Biriktirilmagan",
+      "overdueBadge": "muddati o‘tgan",
+      "columns": {
+        "subject": "Mavzu",
+        "from": "Kimdan",
+        "status": "Holat",
+        "assignee": "Mas’ul",
+        "due": "Javob muddati",
+        "created": "Yuborilgan"
+      },
+      "filters": {
+        "search": "Qidiruv (raqam, mavzu, ism, pochta)",
+        "all": "Hammasi",
+        "me": "Mening",
+        "none": "Biriktirilmagan",
+        "overdue": "Faqat muddati o‘tganlar",
+        "apply": "Qo‘llash",
+        "reset": "Tozalash"
+      },
+      "statuses": {
+        "NEW": "Yangi",
+        "IN_PROGRESS": "Jarayonda",
+        "ANSWERED": "Javob berilgan",
+        "CLOSED": "Yopilgan"
+      },
+      "controls": {
+        "status": "Holat",
+        "assignee": "Mas’ul xodim",
+        "unassigned": "Biriktirilmagan",
+        "reply": "Javob yoki qayd",
+        "internalNote": "Ichki qayd (murojaatchiga ko‘rinmaydi)",
+        "internalHint": "Qayd holatni o‘zgartirmaydi va xat yubormaydi.",
+        "send": "Yuborish",
+        "sent": "Yuborildi."
+      }
+    },
+    "tasks": {
+      "title": "Vazifalar",
+      "new": "Yangi vazifa",
+      "edit": "Vazifani tahrirlash",
+      "empty": "Vazifalar yo‘q.",
+      "all": "Hammasi",
+      "mine": "Faqat mening",
+      "apply": "Qo‘llash",
+      "late": "muddati o‘tgan",
+      "fields": {
+        "title": "Sarlavha",
+        "description": "Tavsif",
+        "status": "Holat",
+        "dueAt": "Muddat",
+        "timeHint": "Toshkent vaqti (UTC+5).",
+        "assignee": "Mas’ul",
+        "unassigned": "Biriktirilmagan",
+        "request": "Murojaat"
+      },
+      "statuses": {
+        "TODO": "Bajarilishi kerak",
+        "DOING": "Jarayonda",
+        "DONE": "Bajarilgan"
+      }
+    },
+    "reports": {
+      "title": "Hisobotlar",
+      "from": "Boshlanish sanasi",
+      "to": "Tugash sanasi",
+      "apply": "Ko‘rsatish",
+      "reset": "Tozalash",
+      "export": "CSV yuklab olish",
+      "badRange": "Sanalar noto‘g‘ri, shuning uchun barcha murojaatlar ko‘rsatilmoqda.",
+      "total": "Jami murojaatlar",
+      "overdue": "Muddati o‘tgan",
+      "avgResponse": "Birinchi javobgacha o‘rtacha vaqt",
+      "hours": "soat",
+      "slaMet": "Muddatida javob berilgan",
+      "byStatus": "Holat bo‘yicha",
+      "byMonth": "Oylar bo‘yicha",
+      "byRegion": "Hududlar bo‘yicha",
+      "noRegion": "Obyektsiz",
+      "noData": "Ma’lumot yo‘q.",
+      "mailOn": "Elektron pochta yuborish yoqilgan.",
+      "mailOff": "Elektron pochta yuborish sozlanmagan (SMTP_URL yo‘q): xatlar navbatda turadi.",
+      "mailPending": "Navbatdagi xatlar"
+    },
+    "cabinet": {
+      "myOpen": "Mening ochiq murojaatlarim",
+      "unassigned": "Biriktirilmagan yangilari",
+      "overdue": "Muddati o‘tgan",
+      "myRequests": "Mening murojaatlarim",
+      "noRequests": "Sizga biriktirilgan ochiq murojaat yo‘q.",
+      "myTasks": "Mening vazifalarim",
+      "noTasks": "Ochiq vazifalar yo‘q.",
+      "due": "Muddat",
+      "late": "muddati o‘tgan",
+      "noDue": "Muddatsiz"
+    },
+    "users": {
+      "title": "Foydalanuvchilar",
+      "new": "Yangi foydalanuvchi",
+      "edit": "Foydalanuvchini tahrirlash",
+      "search": "Qidiruv (ism yoki elektron pochta)",
+      "role": "Rol",
+      "state": "Holat",
+      "all": "Barchasi",
+      "active": "Faol",
+      "inactive": "O‘chirilgan",
+      "apply": "Qo‘llash",
+      "reset": "Tozalash",
+      "empty": "Foydalanuvchilar topilmadi.",
+      "you": "siz",
+      "created": "Qo‘shilgan",
+      "fields": {
+        "email": "Elektron pochta",
+        "fullName": "To‘liq ism",
+        "locale": "Interfeys tili",
+        "role": "Rol",
+        "isActive": "Hisob faol (kira oladi)",
+        "password": "Parol",
+        "newPassword": "Yangi parol"
+      },
+      "passwordHint": "Kamida 10 belgi: harf va raqam bo‘lishi shart.",
+      "newPasswordHint": "Bo‘sh qoldirilsa, joriy parol saqlanadi. Yangi parol o‘rnatilsa, odam barcha qurilmalardan chiqarib yuboriladi.",
+      "signOutNote": "Rol, holat yoki parol o‘zgarsa, foydalanuvchi qaytadan kirishi kerak bo‘ladi.",
+      "selfNote": "O‘z hisobingizning rolini o‘zgartirib yoki o‘chirib bo‘lmaydi.",
+      "pager": {
+        "prev": "Oldingi",
+        "next": "Keyingi",
+        "total": "Jami"
+      }
+    },
+    "roles": {
+      "title": "Rollar va huquqlar",
+      "lead": "Har bir rol nimaga ruxsat berilganini ko‘rsatadi. Huquqlar tizim tomonidan belgilangan; odamning huquqini o‘zgartirish uchun «Foydalanuvchilar» bo‘limida uning rolini almashtiring.",
+      "users": "Foydalanuvchilar",
+      "everything": "Barcha huquqlar",
+      "noRights": "Admin panelga kira olmaydi",
+      "allowed": "Ruxsat berilgan",
+      "denied": "Ruxsat yo‘q",
+      "resource": "Bo‘lim",
+      "resources": {
+        "page": "Sahifalar va yangiliklar",
+        "media": "Media kutubxona",
+        "settings": "Sayt sozlamalari",
+        "map.layer": "Xarita qatlamlari",
+        "map.feature": "Xarita obyektlari",
+        "invest": "Investitsiya jadvali",
+        "auction": "Auksion lotlari",
+        "request": "Murojaatlar",
+        "task": "Vazifalar",
+        "report": "Hisobotlar",
+        "user": "Foydalanuvchilar",
+        "role": "Rollar",
+        "audit": "Audit jurnali"
+      },
+      "actions": {
+        "view": "Ko‘rish",
+        "create": "Yaratish",
+        "update": "Tahrirlash",
+        "delete": "O‘chirish",
+        "publish": "Nashr etish"
+      },
+      "names": {
+        "SUPER_ADMIN": "Bosh administrator",
+        "ADMIN": "Administrator",
+        "CONTENT_EDITOR": "Kontent muharriri",
+        "MAP_EDITOR": "Xarita muharriri",
+        "REQUEST_MANAGER": "Murojaatlar menejeri",
+        "INVESTOR": "Investor"
+      }
+    },
+    "audit": {
+      "title": "Audit jurnali",
+      "lead": "Ma’lumotlardagi barcha o‘zgarishlar va kirishlar. Yozuvlarni o‘chirib yoki o‘zgartirib bo‘lmaydi.",
+      "filters": {
+        "action": "Harakat (masalan, page.update)",
+        "entity": "Obyekt turi",
+        "user": "Foydalanuvchi",
+        "from": "Sanadan",
+        "to": "Sanagacha",
+        "all": "Barchasi",
+        "apply": "Qo‘llash",
+        "reset": "Tozalash"
+      },
+      "columns": {
+        "time": "Vaqt",
+        "user": "Kim",
+        "action": "Harakat",
+        "object": "Obyekt",
+        "ip": "IP-manzil",
+        "details": "Tafsilotlar"
+      },
+      "empty": "Yozuvlar topilmadi.",
+      "system": "Tizim yoki mehmon",
+      "deletedUser": "o‘chirilgan hisob",
+      "show": "Ko‘rsatish",
+      "before": "Oldin",
+      "after": "Keyin",
+      "noDetails": "Qo‘shimcha ma’lumot yo‘q.",
+      "truncated": "Matn qisqartirildi.",
+      "badRange": "Sanalar noto‘g‘ri, shuning uchun barcha yozuvlar ko‘rsatilgan.",
+      "pager": {
+        "prev": "Oldingi",
+        "next": "Keyingi",
+        "total": "Jami"
+      }
+    }
+  },
+  "footer": {
+    "rights": "Barcha huquqlar himoyalangan",
+    "sections": "Bo‘limlar"
+  },
+  "about": {
+    "title": "Loyiha haqida",
+    "lead": "InvestMap — hududlardagi investitsiya imkoniyatlarini yagona interaktiv xaritada jamlaydigan portal.",
+    "blocks": [
+      {
+        "title": "Maqsad",
+        "text": "Investorga kerakli ma’lumotni tez va ishonchli ko‘rsatish."
+      },
+      {
+        "title": "Nimalar bor",
+        "text": "Hududlar, yer uchastkalari, yo‘llar, bekatlar, investitsiya jadvali va auksion lotlari."
+      },
+      {
+        "title": "Kim uchun",
+        "text": "Investorlar, tadbirkorlar va hududiy rivojlanish bilan shug‘ullanuvchi mutasaddilar uchun."
+      }
+    ]
+  },
+  "news": {
+    "title": "Yangiliklar",
+    "lead": "Portal va investitsiya sohasidagi so‘nggi e’lonlar.",
+    "empty": "Hozircha yangiliklar yo‘q",
+    "emptyHint": "Yangiliklar boshqaruv panelidan qo‘shilgach shu yerda ko‘rinadi."
+  },
+  "contacts": {
+    "title": "Aloqa",
+    "lead": "Savollaringiz bo‘lsa, biz bilan bog‘laning.",
+    "notSet": "Aloqa ma’lumotlari sayt sozlamalarida kiritilgach shu yerda ko‘rinadi.",
+    "requestSoon": "Murojaat shakli keyingi bosqichda qo‘shiladi."
+  },
+  "soon": {
+    "title": "Bo‘lim tayyorlanmoqda",
+    "text": "Bu bo‘lim ishlab chiqilmoqda va tez orada ochiladi.",
+    "back": "Bosh sahifaga qaytish"
+  },
+  "notFound": {
+    "title": "Sahifa topilmadi",
+    "text": "Manzil noto‘g‘ri yoki sahifa ko‘chirilgan.",
+    "home": "Bosh sahifaga"
+  },
+  "public": {
+    "readMore": "Batafsil",
+    "published": "Chop etilgan",
+    "translationFallback": "Bu matn tanlangan tilda hali tarjima qilinmagan.",
+    "loading": "Yuklanmoqda…"
+  },
+  "map": {
+    "mapLabel": "Investitsiya xaritasi",
+    "searchLabel": "Qidiruv",
+    "searchPlaceholder": "Hudud yoki obyekt nomi",
+    "noResults": "Hech narsa topilmadi",
+    "layers": "Qatlamlar",
+    "layerRegions": "Hududlar",
+    "layerObjects": "Obyektlar",
+    "filters": "Filtrlar",
+    "reset": "Tozalash",
+    "category": "Soha",
+    "status": "Holat",
+    "areaRange": "Maydon (ga)",
+    "areaMin": "Dan",
+    "areaMax": "Gacha",
+    "priceMax": "Narx, USD gacha",
+    "found": "Topildi",
+    "legend": "Belgilar",
+    "listTitle": "Obyektlar ro‘yxati",
+    "showList": "Ro‘yxat",
+    "showMap": "Xarita",
+    "emptyList": "Filtrlarga mos obyekt yo‘q.",
+    "categories": {
+      "industry": "Sanoat",
+      "agriculture": "Qishloq xo‘jaligi",
+      "tourism": "Turizm",
+      "energy": "Energetika",
+      "logistics": "Logistika",
+      "services": "Xizmatlar"
+    },
+    "statuses": {
+      "AVAILABLE": "Bo‘sh",
+      "RESERVED": "Band qilingan",
+      "AUCTION": "Auksionda",
+      "TAKEN": "Band"
+    },
+    "region": "Hudud",
+    "objectsCount": "Obyektlar",
+    "availableCount": "Bo‘sh",
+    "totalArea": "Umumiy maydon",
+    "area": "Maydon",
+    "price": "Narx",
+    "priceOnRequest": "So‘rov bo‘yicha",
+    "sendRequest": "Murojaat yuborish",
+    "close": "Yopish",
+    "ha": "ga",
+    "loadError": "Xaritani yuklab bo‘lmadi.",
+    "noData": "Hozircha xaritada ma’lumot yo‘q.",
+    "selected": "Tanlangan",
+    "layerRoads": "Yo‘llar",
+    "layerStops": "Bekatlar",
+    "layerPlans": "Reja rasmlari",
+    "kinds": {
+      "road": "Avtomobil yo‘li",
+      "rail": "Temir yo‘l",
+      "bus": "Avtobus bekati",
+      "train": "Poyezd bekati",
+      "other": "Bekat"
+    },
+    "typeLabel": "Turi",
+    "auctionLabel": "Auksion",
+    "auctionStartPrice": "Boshlang‘ich narx"
+  },
+  "projects": {
+    "lead": "Chop etilgan investitsiya obyektlari jadvali. Filtrlang, saralang va xaritada ko‘ring.",
+    "all": "Hammasi",
+    "apply": "Qo‘llash",
+    "columns": {
+      "name": "Nomi",
+      "region": "Hudud",
+      "category": "Soha",
+      "area": "Maydon",
+      "price": "Narx",
+      "status": "Holat",
+      "map": "Xaritada"
+    },
+    "pager": {
+      "prev": "Oldingi",
+      "next": "Keyingi",
+      "total": "Jami"
+    }
+  },
+  "auction": {
+    "lead": "Investitsiya obyektlari bo‘yicha auksion lotlari: muddatlar, boshlang‘ich narx, shartlar va natijalar.",
+    "empty": "Hozircha auksion lotlari yo‘q",
+    "emptyHint": "Lotlar boshqaruv panelidan qo‘shilgach shu yerda ko‘rinadi.",
+    "current": "Faol va rejalashtirilgan",
+    "finished": "Yakunlangan",
+    "startsAt": "Boshlanishi",
+    "endsAt": "Tugashi",
+    "startPrice": "Boshlang‘ich narx",
+    "finalPrice": "Yakuniy narx",
+    "terms": "Shartlar",
+    "result": "Natija",
+    "viewOnMap": "Xaritada ko‘rish",
+    "statuses": {
+      "SCHEDULED": "Rejalashtirilgan",
+      "OPEN": "Davom etmoqda",
+      "CLOSED": "Yakunlangan",
+      "CANCELLED": "Bekor qilingan"
+    }
+  },
+  "request": {
+    "title": "Murojaat yuborish",
+    "lead": "Savolingizni yozing yoki obyekt bo‘yicha murojaat qoldiring. Javob berilgach, maxsus havola orqali yozishmani davom ettira olasiz.",
+    "fields": {
+      "subject": "Mavzu",
+      "message": "Xabar",
+      "name": "Ismingiz",
+      "email": "Elektron pochta",
+      "phone": "Telefon (ixtiyoriy)",
+      "files": "Fayllar (ixtiyoriy)",
+      "filesHint": "3 tagacha fayl: JPG, PNG, WebP, GIF yoki PDF, har biri 5 MB gacha.",
+      "relatedObject": "Murojaat obyekt bo‘yicha"
+    },
+    "submit": "Yuborish",
+    "privacy": "Ma’lumotlaringiz faqat murojaatga javob berish uchun ishlatiladi.",
+    "errors": {
+      "tooFast": "Shakl juda tez yuborildi. Bir necha soniya kutib, qayta urinib ko‘ring.",
+      "formExpired": "Shakl eskirgan. Sahifani yangilab, qayta yuboring.",
+      "rateLimited": "Juda ko‘p murojaat yuborildi. Keyinroq urinib ko‘ring.",
+      "invalid": "Maydonlarni tekshiring",
+      "rejected": "Xabar yuborilmadi. Matnni tekshirib, qayta urinib ko‘ring.",
+      "tooManyFiles": "Eng ko‘pi bilan 3 ta fayl yuklash mumkin.",
+      "fileTooLarge": "Fayl 5 MB dan katta.",
+      "unsupportedFile": "Bu fayl turi qo‘llab-quvvatlanmaydi.",
+      "storageUnavailable": "Fayllarni saqlab bo‘lmadi. Keyinroq urinib ko‘ring.",
+      "unknownObject": "Tanlangan obyekt topilmadi.",
+      "notFound": "Murojaat topilmadi.",
+      "closed": "Murojaat yopilgan. Yangi murojaat yuboring."
+    },
+    "track": {
+      "title": "Murojaat №{number}",
+      "saveLink": "Bu sahifa manzilini saqlab qo‘ying: murojaatni kuzatishning yagona yo‘li shu. Havolani boshqalarga bermang.",
+      "status": "Holat",
+      "created": "Yuborilgan",
+      "thread": "Yozishma",
+      "you": "Siz",
+      "staff": "Investitsiya portali jamoasi",
+      "attachments": "Fayllar",
+      "replyTitle": "Javob yozish",
+      "replyLabel": "Xabaringiz",
+      "send": "Yuborish",
+      "sent": "Xabar yuborildi.",
+      "closedNote": "Murojaat yopilgan. Yangi savol bo‘lsa, yangi murojaat yuboring."
+    }
+  },
+  "mail": {
+    "received": {
+      "subject": "Murojaatingiz №{number} qabul qilindi",
+      "body": "Assalomu alaykum, {name}!\n\nMurojaatingiz №{number} qabul qilindi: «{subject}».\n\nJavobni kuzatish va yozishmani davom ettirish uchun havola:\n{url}\n\nHavolani boshqalarga bermang: unga ega bo‘lgan har kim yozishmani o‘qiy oladi."
+    },
+    "reply": {
+      "subject": "Murojaatingiz №{number} bo‘yicha javob",
+      "body": "Assalomu alaykum, {name}!\n\n{excerpt}\n\nTo‘liq javobni o‘qish va javob yozish uchun:\n{url}"
+    },
+    "staffNew": {
+      "subject": "Yangi murojaat №{number}: {subject}",
+      "body": "Kimdan: {name}\n\n{excerpt}\n\nOchish: {adminUrl}"
+    },
+    "staffReply": {
+      "subject": "Murojaat №{number} bo‘yicha yangi xabar",
+      "body": "{name} yozdi:\n\n{excerpt}\n\nOchish: {adminUrl}"
+    }
+  },
+  "a11y": {
+    "open": "Qulaylik",
+    "title": "Ko‘rish qulayligi sozlamalari",
+    "fontSize": "Matn o‘lchami",
+    "fontMd": "A",
+    "fontLg": "A+",
+    "fontXl": "A++",
+    "contrast": "Yuqori kontrast",
+    "motion": "Animatsiyalarni o‘chirish",
+    "reset": "Asl holatga qaytarish",
+    "close": "Yopish"
+  }
+}

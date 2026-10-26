@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+.vercel
+e2e
+test-results
+playwright-report
+*.tsbuildinfo

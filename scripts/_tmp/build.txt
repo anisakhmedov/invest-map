@@ -1,0 +1,209 @@
+
+> web@0.1.0 prebuild D:\WORK\InvestMap\apps\web
+> node scripts/copy-maplibre-worker.mjs
+
+MapLibre worker files copied to public/maplibre
+
+> web@0.1.0 build D:\WORK\InvestMap\apps\web
+> next build
+
+▲ Next.js 16.4.3 (Turbopack)
+- Environments: .env
+✓ Running next.config.ts took 41ms
+- Cache Components enabled
+- Partial Prefetching enabled
+- Experiments (use with caution):
+  · serverActions
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 8.5s
+  Running TypeScript ...
+  Finished TypeScript in 5.7s ...
+  Collecting page data using 15 workers ...
+  Generating static pages using 15 workers (0/169) ...
+  Generating static pages using 15 workers (42/169) 
+  Generating static pages using 15 workers (84/169) 
+  Generating static pages using 15 workers (126/169) 
+✓ Generating static pages using 15 workers (169/169) in 7.8s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /_not-found
+├   /[lang]
+│ ├ ◐ /[lang]
+│ ├ ○ /uz
+│ ├ ○ /oz
+│ └ ◐ [+2 more paths]
+├   /[lang]/[...rest]
+│ ├ ◐ /[lang]/[...rest]
+│ ├ ◐ /uz/[...rest]
+│ ├ ◐ /oz/[...rest]
+│ └ ◐ [+2 more paths]
+├   /[lang]/about
+│ ├ ◐ /[lang]/about
+│ ├ ○ /uz/about
+│ ├ ○ /oz/about
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin
+│ ├ ◐ /[lang]/admin
+│ ├ ◐ /uz/admin
+│ ├ ◐ /oz/admin
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/auction
+│ ├ ◐ /[lang]/admin/auction
+│ ├ ◐ /uz/admin/auction
+│ ├ ◐ /oz/admin/auction
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/auction/[id]
+│ ├ ◐ /[lang]/admin/auction/[id]
+│ ├ ◐ /uz/admin/auction/[id]
+│ ├ ◐ /oz/admin/auction/[id]
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/auction/new
+│ ├ ◐ /[lang]/admin/auction/new
+│ ├ ◐ /uz/admin/auction/new
+│ ├ ◐ /oz/admin/auction/new
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/invest
+│ ├ ◐ /[lang]/admin/invest
+│ ├ ◐ /uz/admin/invest
+│ ├ ◐ /oz/admin/invest
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/invest/[id]
+│ ├ ◐ /[lang]/admin/invest/[id]
+│ ├ ◐ /uz/admin/invest/[id]
+│ ├ ◐ /oz/admin/invest/[id]
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/invest/new
+│ ├ ◐ /[lang]/admin/invest/new
+│ ├ ◐ /uz/admin/invest/new
+│ ├ ◐ /oz/admin/invest/new
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/login
+│ ├ ◐ /[lang]/admin/login
+│ ├ ◐ /uz/admin/login
+│ ├ ◐ /oz/admin/login
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/map
+│ ├ ◐ /[lang]/admin/map
+│ ├ ◐ /uz/admin/map
+│ ├ ◐ /oz/admin/map
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/media
+│ ├ ◐ /[lang]/admin/media
+│ ├ ◐ /uz/admin/media
+│ ├ ◐ /oz/admin/media
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/pages
+│ ├ ◐ /[lang]/admin/pages
+│ ├ ◐ /uz/admin/pages
+│ ├ ◐ /oz/admin/pages
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/pages/[id]
+│ ├ ◐ /[lang]/admin/pages/[id]
+│ ├ ◐ /uz/admin/pages/[id]
+│ ├ ◐ /oz/admin/pages/[id]
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/pages/new
+│ ├ ◐ /[lang]/admin/pages/new
+│ ├ ◐ /uz/admin/pages/new
+│ ├ ◐ /oz/admin/pages/new
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/reports
+│ ├ ◐ /[lang]/admin/reports
+│ ├ ◐ /uz/admin/reports
+│ ├ ◐ /oz/admin/reports
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/requests
+│ ├ ◐ /[lang]/admin/requests
+│ ├ ◐ /uz/admin/requests
+│ ├ ◐ /oz/admin/requests
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/requests/[id]
+│ ├ ◐ /[lang]/admin/requests/[id]
+│ ├ ◐ /uz/admin/requests/[id]
+│ ├ ◐ /oz/admin/requests/[id]
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/settings
+│ ├ ◐ /[lang]/admin/settings
+│ ├ ◐ /uz/admin/settings
+│ ├ ◐ /oz/admin/settings
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/tasks
+│ ├ ◐ /[lang]/admin/tasks
+│ ├ ◐ /uz/admin/tasks
+│ ├ ◐ /oz/admin/tasks
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/tasks/[id]
+│ ├ ◐ /[lang]/admin/tasks/[id]
+│ ├ ◐ /uz/admin/tasks/[id]
+│ ├ ◐ /oz/admin/tasks/[id]
+│ └ ◐ [+2 more paths]
+├   /[lang]/admin/tasks/new
+│ ├ ◐ /[lang]/admin/tasks/new
+│ ├ ◐ /uz/admin/tasks/new
+│ ├ ◐ /oz/admin/tasks/new
+│ └ ◐ [+2 more paths]
+├   /[lang]/auction
+│ ├ ◐ /[lang]/auction
+│ ├ ◐ /uz/auction
+│ ├ ◐ /oz/auction
+│ └ ◐ [+2 more paths]
+├   /[lang]/contacts
+│ ├ ◐ /[lang]/contacts
+│ ├ ◐ /uz/contacts
+│ ├ ◐ /oz/contacts
+│ └ ◐ [+2 more paths]
+├   /[lang]/map
+│ ├ ◐ /[lang]/map
+│ ├ ◐ /uz/map
+│ ├ ◐ /oz/map
+│ └ ◐ [+2 more paths]
+├   /[lang]/news
+│ ├ ◐ /[lang]/news
+│ ├ ◐ /uz/news
+│ ├ ◐ /oz/news
+│ └ ◐ [+2 more paths]
+├   /[lang]/news/[slug]
+│ ├ ◐ /[lang]/news/[slug]
+│ ├ ◐ /uz/news/[slug]
+│ ├ ◐ /oz/news/[slug]
+│ └ ◐ [+2 more paths]
+├ ƒ /[lang]/opengraph-image
+├   /[lang]/p/[slug]
+│ ├ ◐ /[lang]/p/[slug]
+│ ├ ◐ /uz/p/[slug]
+│ ├ ◐ /oz/p/[slug]
+│ └ ◐ [+2 more paths]
+├   /[lang]/projects
+│ ├ ◐ /[lang]/projects
+│ ├ ◐ /uz/projects
+│ ├ ◐ /oz/projects
+│ └ ◐ [+2 more paths]
+├   /[lang]/request
+│ ├ ◐ /[lang]/request
+│ ├ ◐ /uz/request
+│ ├ ◐ /oz/request
+│ └ ◐ [+2 more paths]
+├   /[lang]/request/track/[token]
+│ ├ ◐ /[lang]/request/track/[token]
+│ ├ ◐ /uz/request/track/[token]
+│ ├ ◐ /oz/request/track/[token]
+│ └ ◐ [+2 more paths]
+├ ƒ /api/invest/export
+├ ƒ /api/map/export
+├ ƒ /api/media/[id]
+├ ƒ /api/reports/requests
+├ ƒ /api/requests/attachments/[id]
+├ ○ /icon
+├ ○ /manifest.webmanifest
+├ ○ /robots.txt
+└ ƒ /sitemap.xml
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)             prerendered as static content
+◐  (Partial Prerender)  prerendered as static HTML with dynamic server-streamed content
+ƒ  (Dynamic)            server-rendered on demand
+

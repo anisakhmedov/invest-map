@@ -1,0 +1,358 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // Migrations need a direct (or session-mode) connection; the app may use a transaction pooler via DATABASE_URL.
+  directUrl = env("DIRECT_URL")
+}
+
+// Geometry columns (PostGIS) are added by raw SQL migrations in later stages;
+// Prisma models only hold relational data.
+
+model Role {
+  id          String           @id @default(cuid())
+  key         String           @unique // SUPER_ADMIN, ADMIN, CONTENT_EDITOR, MAP_EDITOR, REQUEST_MANAGER, INVESTOR
+  name        Json // { uz, oz, ru, en }
+  permissions RolePermission[]
+  users       User[]
+}
+
+model RolePermission {
+  roleId   String
+  resource String // e.g. "page", "map.layer", "request"
+  action   String // view | create | update | delete | publish
+  role     Role   @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, resource, action])
+}
+
+model User {
+  id               String           @id @default(cuid())
+  email            String           @unique
+  passwordHash     String
+  fullName         String
+  locale           String           @default("uz")
+  isActive         Boolean          @default(true)
+  roleId           String
+  role             Role             @relation(fields: [roleId], references: [id])
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  auditLogs        AuditLog[]
+  sessions         Session[]
+  assignedRequests Request[]        @relation("AssignedRequests")
+  requestMessages  RequestMessage[] @relation("RequestMessages")
+  tasksAssigned    Task[]           @relation("TasksAssigned")
+  tasksCreated     Task[]           @relation("TasksCreated")
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  action    String // e.g. "page.update"
+  entity    String
+  entityId  String?
+  before    Json?
+  after     Json?
+  ip        String?
+  createdAt DateTime @default(now())
+
+  @@index([entity, entityId])
+  @@index([createdAt])
+}
+
+model SiteSetting {
+  key       String   @id
+  value     Json // localized values as { uz, oz, ru, en } where relevant
+  updatedAt DateTime @updatedAt
+}
+
+enum PageKind {
+  PAGE
+  NEWS
+}
+
+enum PublishStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model Page {
+  id          String        @id @default(cuid())
+  kind        PageKind      @default(PAGE)
+  slug        String
+  status      PublishStatus @default(DRAFT)
+  title       Json // { uz, oz, ru, en }
+  body        Json // { uz, oz, ru, en } plain text, paragraphs split by blank lines
+  coverId     String?
+  cover       MediaAsset?   @relation(fields: [coverId], references: [id], onDelete: SetNull)
+  publishedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@unique([kind, slug])
+  @@index([kind, status, publishedAt])
+}
+
+model MediaAsset {
+  id         String         @id @default(cuid())
+  key        String         @unique // object key in S3
+  filename   String
+  mimeType   String
+  size       Int
+  alt        Json? // { uz, oz, ru, en }
+  uploadedBy String?
+  createdAt  DateTime       @default(now())
+  pages      Page[]
+  plans      PlanOverlay[]
+  objects    InvestObject[] @relation("ObjectDocuments")
+
+  @@index([createdAt])
+}
+
+enum ObjectStatus {
+  AVAILABLE
+  RESERVED
+  AUCTION
+  TAKEN
+}
+
+// Geometry is stored as validated GeoJSON (SRID 4326). The map editor (stage 5) writes it;
+// PostGIS columns can be added later if spatial queries are needed.
+model Region {
+  id          String         @id @default(cuid())
+  slug        String         @unique
+  status      PublishStatus  @default(DRAFT)
+  name        Json // { uz, oz, ru, en }
+  description Json
+  geometry    Json // GeoJSON Polygon | MultiPolygon
+  centerLng   Float
+  centerLat   Float
+  objects     InvestObject[]
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+}
+
+model InvestObject {
+  id           String        @id @default(cuid())
+  slug         String        @unique
+  regionId     String
+  region       Region        @relation(fields: [regionId], references: [id], onDelete: Cascade)
+  publish      PublishStatus @default(DRAFT)
+  name         Json
+  description  Json
+  category     String // key from OBJECT_CATEGORIES
+  status       ObjectStatus  @default(AVAILABLE)
+  areaHa       Float
+  priceUsd     Float?
+  lng          Float
+  lat          Float
+  contactName  String?
+  contactPhone String?
+  contactEmail String?
+  documents    MediaAsset[]  @relation("ObjectDocuments")
+  auctions     Auction[]
+  requests     Request[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([regionId])
+  @@index([publish, status, category])
+}
+
+// Roads are LineStrings, stops are points; both are drawn in the map editor and shown as public layers.
+model Road {
+  id        String        @id @default(cuid())
+  slug      String        @unique
+  status    PublishStatus @default(DRAFT)
+  kind      String        @default("road") // road | rail
+  name      Json
+  geometry  Json // GeoJSON LineString
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+model Stop {
+  id        String        @id @default(cuid())
+  slug      String        @unique
+  status    PublishStatus @default(DRAFT)
+  kind      String        @default("bus") // bus | train | other
+  name      Json
+  lng       Float
+  lat       Float
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+// A scanned plan or site drawing pinned to the map by its four corners (NW, NE, SE, SW).
+model PlanOverlay {
+  id        String        @id @default(cuid())
+  status    PublishStatus @default(DRAFT)
+  name      Json
+  mediaId   String
+  media     MediaAsset    @relation(fields: [mediaId], references: [id], onDelete: Restrict)
+  corners   Json // [[lng,lat] x4]
+  opacity   Float         @default(0.7)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+enum AuctionStatus {
+  SCHEDULED
+  OPEN
+  CLOSED
+  CANCELLED
+}
+
+// One auction lot for an investment object. Results are entered by hand after the auction ends.
+model Auction {
+  id            String        @id @default(cuid())
+  objectId      String
+  object        InvestObject  @relation(fields: [objectId], references: [id], onDelete: Cascade)
+  status        AuctionStatus @default(SCHEDULED)
+  publish       PublishStatus @default(DRAFT)
+  startsAt      DateTime
+  endsAt        DateTime
+  startPriceUsd Float
+  terms         Json // { uz, oz, ru, en }
+  finalPriceUsd Float?
+  resultNote    Json // { uz, oz, ru, en }
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([objectId])
+  @@index([publish, status, startsAt])
+}
+
+enum RequestStatus {
+  NEW
+  IN_PROGRESS
+  ANSWERED
+  CLOSED
+}
+
+// A question or application from a visitor. Visitors have no account: they follow it with a secret
+// link whose token is stored only as a SHA-256 hash.
+model Request {
+  id              String              @id @default(cuid())
+  number          Int                 @unique @default(autoincrement())
+  trackingHash    String              @unique
+  trackingEnc     String // the token encrypted with a key derived from AUTH_SECRET, to rebuild links for emails
+  objectId        String?
+  object          InvestObject?       @relation(fields: [objectId], references: [id], onDelete: SetNull)
+  subject         String
+  message         String
+  contactName     String
+  contactEmail    String
+  contactPhone    String?
+  locale          String              @default("uz")
+  status          RequestStatus       @default(NEW)
+  assigneeId      String?
+  assignee        User?               @relation("AssignedRequests", fields: [assigneeId], references: [id], onDelete: SetNull)
+  dueAt           DateTime
+  firstResponseAt DateTime?
+  closedAt        DateTime?
+  ip              String?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  messages        RequestMessage[]
+  attachments     RequestAttachment[]
+  tasks           Task[]
+
+  @@index([status, createdAt])
+  @@index([assigneeId, status])
+  @@index([contactEmail])
+}
+
+model RequestMessage {
+  id        String   @id @default(cuid())
+  requestId String
+  request   Request  @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  fromStaff Boolean
+  userId    String?
+  user      User?    @relation("RequestMessages", fields: [userId], references: [id], onDelete: SetNull)
+  body      String
+  internal  Boolean  @default(false) // staff-only note, never shown to the visitor
+  createdAt DateTime @default(now())
+
+  @@index([requestId, createdAt])
+}
+
+// Files sent with a request. They are private: only staff can download them, through an API route.
+model RequestAttachment {
+  id        String   @id @default(cuid())
+  requestId String
+  request   Request  @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  key       String   @unique
+  filename  String
+  mimeType  String
+  size      Int
+  createdAt DateTime @default(now())
+
+  @@index([requestId])
+}
+
+enum TaskStatus {
+  TODO
+  DOING
+  DONE
+}
+
+model Task {
+  id          String     @id @default(cuid())
+  title       String
+  description String     @default("")
+  status      TaskStatus @default(TODO)
+  dueAt       DateTime?
+  assigneeId  String?
+  assignee    User?      @relation("TasksAssigned", fields: [assigneeId], references: [id], onDelete: SetNull)
+  createdById String?
+  createdBy   User?      @relation("TasksCreated", fields: [createdById], references: [id], onDelete: SetNull)
+  requestId   String?
+  request     Request?   @relation(fields: [requestId], references: [id], onDelete: SetNull)
+  completedAt DateTime?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@index([assigneeId, status])
+  @@index([dueAt])
+}
+
+enum EmailStatus {
+  PENDING
+  SENT
+  FAILED
+}
+
+// Outgoing mail waits here until it is delivered over SMTP, so a mail outage never loses a message.
+model EmailOutbox {
+  id        String      @id @default(cuid())
+  toEmail   String
+  subject   String
+  body      String
+  status    EmailStatus @default(PENDING)
+  attempts  Int         @default(0)
+  error     String?
+  createdAt DateTime    @default(now())
+  sentAt    DateTime?
+
+  @@index([status, createdAt])
+}
+
+// One row per sign-in. The session cookie is only valid while its row exists, so a stolen or old
+// cookie can be cancelled on the server (sign-out, account deactivation, "sign out everywhere").
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ip        String?
+  userAgent String?
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+
+  @@index([userId])
+  @@index([expiresAt])
+}

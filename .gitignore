@@ -1,0 +1,9 @@
+node_modules
+.next
+.env
+.env.local
+*.log
+apps/web/public/maplibre
+test-results
+playwright-report
+*.tsbuildinfo

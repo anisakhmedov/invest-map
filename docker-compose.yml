@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: investmap
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-investmap_dev}
+      POSTGRES_DB: investmap
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  # S3-совместимое хранилище для медиабиблиотеки.
+  # (minio/minio на Docker Hub больше не публикуется, поэтому RustFS.)
+  s3:
+    image: rustfs/rustfs:latest
+    restart: unless-stopped
+    environment:
+      RUSTFS_ACCESS_KEY: ${S3_ACCESS_KEY:-investmap}
+      RUSTFS_SECRET_KEY: ${S3_SECRET_KEY:-investmap_dev_secret}
+    ports:
+      - "127.0.0.1:9000:9000"
+      - "127.0.0.1:9001:9001"
+    volumes:
+      - s3-data:/data
+
+volumes:
+  db-data:
+  s3-data:

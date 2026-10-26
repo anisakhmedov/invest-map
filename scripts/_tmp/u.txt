@@ -1,0 +1,13 @@
+
+> web@0.1.0 test D:\WORK\InvestMap\apps\web
+> vitest run
+
+
+ RUN  v5.0.5 D:/WORK/InvestMap/apps/web
+
+
+ Test Files  12 passed (12)
+      Tests  204 passed (204)
+   Start at  19:09:02
+   Duration  757ms (import 48%, tests 31%, transform 17%, worker 4%)
+

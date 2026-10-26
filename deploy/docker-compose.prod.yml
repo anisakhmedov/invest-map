@@ -1,0 +1,134 @@
+# Production stack. Run from this folder:
+#   cp .env.example .env     # then fill it in
+#   docker compose -f docker-compose.prod.yml up -d --build
+# Only Caddy (ports 80 and 443) is reachable from the internet; the database and file storage stay on the internal network.
+
+name: investmap-prod
+
+x-restart: &restart
+  restart: unless-stopped
+
+services:
+  caddy:
+    <<: *restart
+    image: caddy:2
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env}
+      ACME_EMAIL: ${ACME_EMAIL:?set ACME_EMAIL in .env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data # certificates: keep this volume
+      - caddy-config:/config
+    depends_on:
+      web:
+        condition: service_healthy
+
+  web:
+    <<: *restart
+    build:
+      context: ../apps/web
+      args:
+        NEXT_PUBLIC_SITE_URL: https://${DOMAIN:?set DOMAIN in .env}
+    environment:
+      DATABASE_URL: postgresql://investmap:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}@db:5432/investmap?schema=public
+      S3_ENDPOINT: http://s3:9000
+      S3_BUCKET: investmap-media
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY:?set S3_ACCESS_KEY}
+      S3_SECRET_KEY: ${S3_SECRET_KEY:?set S3_SECRET_KEY}
+      AUTH_SECRET: ${AUTH_SECRET:?set AUTH_SECRET}
+      NEXT_PUBLIC_SITE_URL: https://${DOMAIN}
+      SMTP_URL: ${SMTP_URL:-}
+      MAIL_FROM: ${MAIL_FROM:-InvestMap <no-reply@${DOMAIN}>}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      s3:
+        condition: service_started
+
+  # One-off: applies database migrations and makes sure roles (and the first admin, if SEED_* are set) exist.
+  migrate:
+    build:
+      context: ../apps/web
+      target: tools
+      args:
+        NEXT_PUBLIC_SITE_URL: https://${DOMAIN}
+    restart: "no"
+    environment:
+      DATABASE_URL: postgresql://investmap:${POSTGRES_PASSWORD}@db:5432/investmap?schema=public
+      SEED_ADMIN_EMAIL: ${SEED_ADMIN_EMAIL:-}
+      SEED_ADMIN_PASSWORD: ${SEED_ADMIN_PASSWORD:-}
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    <<: *restart
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_USER: investmap
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: investmap
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U investmap -d investmap"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  s3:
+    <<: *restart
+    image: rustfs/rustfs:latest
+    environment:
+      RUSTFS_ACCESS_KEY: ${S3_ACCESS_KEY}
+      RUSTFS_SECRET_KEY: ${S3_SECRET_KEY}
+    volumes:
+      - s3-data:/data
+
+  # Nightly database dump (custom format) kept for BACKUP_KEEP_DAYS days in the backups volume.
+  backup-db:
+    <<: *restart
+    image: postgis/postgis:16-3.4
+    entrypoint: ["/bin/sh", "/scripts/backup-db.sh"]
+    environment:
+      PGHOST: db
+      PGUSER: investmap
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+      PGDATABASE: investmap
+      BACKUP_KEEP_DAYS: ${BACKUP_KEEP_DAYS:-14}
+      BACKUP_HOUR_UTC: ${BACKUP_HOUR_UTC:-21}
+    volumes:
+      - ./backup:/scripts:ro
+      - backups:/backups
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # Nightly mirror of the uploaded files (media library, request attachments).
+  backup-media:
+    <<: *restart
+    image: amazon/aws-cli:latest
+    entrypoint: ["/bin/sh", "/scripts/backup-media.sh"]
+    environment:
+      AWS_ACCESS_KEY_ID: ${S3_ACCESS_KEY}
+      AWS_SECRET_ACCESS_KEY: ${S3_SECRET_KEY}
+      AWS_DEFAULT_REGION: us-east-1
+      S3_ENDPOINT: http://s3:9000
+      S3_BUCKET: investmap-media
+      BACKUP_HOUR_UTC: ${BACKUP_HOUR_UTC:-21}
+    volumes:
+      - ./backup:/scripts:ro
+      - backups:/backups
+    depends_on:
+      - s3
+
+volumes:
+  db-data:
+  s3-data:
+  caddy-data:
+  caddy-config:
+  backups:

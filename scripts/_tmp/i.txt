@@ -1,0 +1,16 @@
+
+> web@0.1.0 test:int D:\WORK\InvestMap\apps\web
+> vitest run --config vitest.int.config.mts
+
+
+ RUN  v5.0.5 D:/WORK/InvestMap/apps/web
+
+
+ Test Files  8 passed (8)
+      Tests  81 passed (81)
+   Start at  19:05:22
+   Duration  10.67s (tests 75%, import 17%, transform 8%)
+
+    Isolate  8 workers spawned · ~144ms startup each (spawn + environment, per file)
+             at least ~1.01s faster with isolate: false — reuses workers across files instead of one per file
+
