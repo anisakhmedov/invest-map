@@ -43,6 +43,7 @@ export async function TaskFormPage({ id, requestId }: { id: string | null; reque
         statuses={t.statuses}
         common={dict.admin.common}
         errors={dict.admin.errors}
+        datePicker={dict.datePicker}
       />
     </AdminShell>
   );

@@ -50,6 +50,7 @@ export async function AuctionFormPage({ id }: { id: string | null }) {
         common={dict.admin.common}
         errors={dict.admin.errors}
         canPublish={can(user.role, "auction", "publish")}
+        datePicker={dict.datePicker}
       />
     </AdminShell>
   );

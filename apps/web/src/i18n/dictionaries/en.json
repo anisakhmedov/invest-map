@@ -774,5 +774,15 @@
     "motion": "Turn off animations",
     "reset": "Reset",
     "close": "Close"
+  },
+  "datePicker": {
+    "pick": "Choose date",
+    "prevMonth": "Previous month",
+    "nextMonth": "Next month",
+    "today": "Today",
+    "clear": "Clear",
+    "done": "Done",
+    "hour": "Hour",
+    "minute": "Minute"
   }
 }

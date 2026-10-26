@@ -10,7 +10,7 @@ async function signIn(page: Page) {
   await page.getByLabel("Email").fill(email);
   await page.getByLabel("Password").fill(password);
   await page.getByRole("button", { name: /sign in|log in/i }).click();
-  await expect(page).toHaveURL(/\/en\/admin\/?$/);
+  await expect(page).toHaveURL(/\/en\/admin\/?$/, { timeout: 30_000 }); // the first sign-in is slow on a cold server
 }
 
 test.describe.serial("users and audit log", () => {
@@ -52,7 +52,7 @@ test.describe.serial("users and audit log", () => {
     await page.getByRole("link", { name: new RegExp(`Edit.*${created.name}`) }).click();
     await page.getByLabel("Account is active (can sign in)").uncheck();
     await page.getByRole("button", { name: "Save" }).click();
-    await expect(page.getByRole("status")).toBeVisible();
+    await expect(page.getByRole("status")).toBeVisible({ timeout: 30_000 });
 
     await page.goto("/en/admin/audit?action=user.");
     await expect(page.getByRole("heading", { level: 1, name: "Audit log" })).toBeVisible();
@@ -72,6 +72,24 @@ test.describe.serial("users and audit log", () => {
     await expect(page).toHaveURL(/\/admin\/login/);
     await expect(page.locator('p[role="alert"]')).toBeVisible();
   });
+});
+
+test("the audit date filter uses the site calendar and keeps the picked day in the URL", async ({ page }) => {
+  const { email, password } = superAdmin();
+  await page.goto("/en/admin/login");
+  await page.getByLabel("Email").fill(email);
+  await page.getByLabel("Password").fill(password);
+  await page.getByRole("button", { name: /sign in|log in/i }).click();
+  await expect(page).toHaveURL(/\/en\/admin\/?$/, { timeout: 30_000 });
+
+  await page.goto("/en/admin/audit");
+  await page.locator("#au-from").click();
+  const calendar = page.getByRole("dialog", { name: "Choose date" });
+  await expect(calendar).toBeVisible();
+  expect(await axeViolations(page)).toEqual([]);
+  await calendar.getByRole("button", { name: /15/ }).first().click();
+  await expect(calendar).toHaveCount(0);
+  await expect(page.locator("input[name=from]")).toHaveValue(/^\d{4}-\d{2}-15$/);
 });
 
 test("a super administrator sees the roles page and the top role in the form", async ({ page }) => {

@@ -7,7 +7,7 @@ import { mailConfigured } from "@/lib/mailer";
 import { htmlLang } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/get-dictionary";
 import { AdminShell } from "@/components/admin-shell";
-import { inputClass } from "@/components/admin-ui";
+import { DateField } from "@/components/date-field";
 import { loadReport, parseReportQuery } from "@/features/requests/report-data";
 import { REQUEST_STATUSES } from "@/features/requests/schemas";
 import { AdminLoading } from "@/components/loading-states";
@@ -40,11 +40,11 @@ async function Reports({ searchParams }: { searchParams: PageProps<"/[lang]/admi
       <form method="get" className="flex flex-wrap items-end gap-3">
         <div>
           <label htmlFor="rp-from" className="mb-1 block text-sm font-medium">{t.from}</label>
-          <input id="rp-from" name="from" type="date" defaultValue={query.from} className={inputClass} />
+          <DateField id="rp-from" name="from" defaultValue={query.from} labels={dict.datePicker} />
         </div>
         <div>
           <label htmlFor="rp-to" className="mb-1 block text-sm font-medium">{t.to}</label>
-          <input id="rp-to" name="to" type="date" defaultValue={query.to} className={inputClass} />
+          <DateField id="rp-to" name="to" defaultValue={query.to} labels={dict.datePicker} />
         </div>
         <button type="submit" className="rounded-lg bg-brand px-4 py-2 font-medium text-brand-fg">{t.apply}</button>
         <Link href={`/${locale}/admin/reports`} className="pb-2 text-sm font-medium text-brand underline underline-offset-4">{t.reset}</Link>

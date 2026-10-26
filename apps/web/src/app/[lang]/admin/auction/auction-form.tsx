@@ -7,6 +7,8 @@ import { ErrorNote, Field, inputClass } from "@/components/admin-ui";
 import { fromTashkentInput } from "@/lib/datetime";
 import { locales, localeLabels, type Locale } from "@/i18n/config";
 import { AUCTION_STATUSES } from "@/features/invest/schemas";
+import type { DateFieldLabels } from "@/components/date-field";
+import { DateField } from "@/components/date-field";
 import { Select } from "@/components/form-controls";
 
 type L4 = Record<Locale, string>;
@@ -38,6 +40,7 @@ export function AuctionForm({
   common,
   errors,
   canPublish,
+  datePicker,
 }: {
   lang: string;
   id: string | null;
@@ -48,6 +51,7 @@ export function AuctionForm({
   common: { save: string; draft: string; published: string; back: string };
   errors: Record<string, string>;
   canPublish: boolean;
+  datePicker: DateFieldLabels;
 }) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -95,10 +99,10 @@ export function AuctionForm({
 
       <div className="grid gap-4 sm:grid-cols-2">
         <Field id="a-starts" label={labels.startsAt} hint={labels.timeHint}>
-          <input id="a-starts" type="datetime-local" required value={v.startsAt} onChange={(e) => set("startsAt", e.target.value)} className={inputClass} />
+          <DateField id="a-starts" mode="datetime" required value={v.startsAt} onChange={(e) => set("startsAt", e.target.value)} labels={datePicker} />
         </Field>
         <Field id="a-ends" label={labels.endsAt}>
-          <input id="a-ends" type="datetime-local" required value={v.endsAt} onChange={(e) => set("endsAt", e.target.value)} className={inputClass} />
+          <DateField id="a-ends" mode="datetime" required value={v.endsAt} onChange={(e) => set("endsAt", e.target.value)} labels={datePicker} />
         </Field>
       </div>
 

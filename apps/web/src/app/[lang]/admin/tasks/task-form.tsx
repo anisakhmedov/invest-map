@@ -6,6 +6,8 @@ import { saveTask } from "../request-actions";
 import { ErrorNote, Field, inputClass } from "@/components/admin-ui";
 import { fromTashkentInput } from "@/lib/datetime";
 import { TASK_STATUSES } from "@/features/requests/schemas";
+import type { DateFieldLabels } from "@/components/date-field";
+import { DateField } from "@/components/date-field";
 import { Select } from "@/components/form-controls";
 
 export type TaskFormValues = {
@@ -27,6 +29,7 @@ export function TaskForm({
   statuses,
   common,
   errors,
+  datePicker,
 }: {
   lang: string;
   id: string | null;
@@ -37,6 +40,7 @@ export function TaskForm({
   statuses: Record<string, string>;
   common: { save: string; back: string };
   errors: Record<string, string>;
+  datePicker: DateFieldLabels;
 }) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -87,7 +91,7 @@ export function TaskForm({
           </Select>
         </Field>
         <Field id="t-due" label={labels.dueAt} hint={labels.timeHint}>
-          <input id="t-due" type="datetime-local" value={v.dueAt} onChange={(e) => set("dueAt", e.target.value)} className={inputClass} />
+          <DateField id="t-due" mode="datetime" value={v.dueAt} onChange={(e) => set("dueAt", e.target.value)} labels={datePicker} />
         </Field>
         <Field id="t-assignee" label={labels.assignee}>
           <Select id="t-assignee" value={v.assigneeId} onChange={(e) => set("assigneeId", e.target.value)}>

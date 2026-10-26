@@ -10,6 +10,7 @@ import { getDictionary, getLocale } from "@/i18n/get-dictionary";
 import { AdminShell } from "@/components/admin-shell";
 import { Pager } from "@/components/pager";
 import { inputClass } from "@/components/admin-ui";
+import { DateField } from "@/components/date-field";
 import { Select } from "@/components/form-controls";
 import { AdminLoading } from "@/components/loading-states";
 
@@ -109,11 +110,11 @@ async function Log({ searchParams }: { searchParams: PageProps<"/[lang]/admin/au
         </div>
         <div>
           <label htmlFor="au-from" className="mb-1 block text-sm font-medium">{t.filters.from}</label>
-          <input id="au-from" name="from" type="date" defaultValue={fromRaw} className={inputClass} />
+          <DateField id="au-from" name="from" defaultValue={fromRaw} labels={dict.datePicker} />
         </div>
         <div>
           <label htmlFor="au-to" className="mb-1 block text-sm font-medium">{t.filters.to}</label>
-          <input id="au-to" name="to" type="date" defaultValue={toRaw} className={inputClass} />
+          <DateField id="au-to" name="to" defaultValue={toRaw} labels={dict.datePicker} />
         </div>
         <div className="flex items-end gap-3 sm:col-span-2 lg:col-span-5">
           <button type="submit" className="rounded-lg bg-brand px-4 py-2 font-medium text-brand-fg">{t.filters.apply}</button>

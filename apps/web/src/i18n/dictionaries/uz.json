@@ -774,5 +774,15 @@
     "motion": "Animatsiyalarni o‘chirish",
     "reset": "Asl holatga qaytarish",
     "close": "Yopish"
+  },
+  "datePicker": {
+    "pick": "Sanani tanlash",
+    "prevMonth": "Oldingi oy",
+    "nextMonth": "Keyingi oy",
+    "today": "Bugun",
+    "clear": "Tozalash",
+    "done": "Tayyor",
+    "hour": "Soat",
+    "minute": "Daqiqa"
   }
 }
